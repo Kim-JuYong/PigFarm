@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/home"
+    android:id="@+id/navigation">
+    <fragment
+        android:id="@+id/analyze"
+        android:name="com.example.pigfarm.AnalyzeFragment"/>
+    <fragment
+        android:id="@+id/home"
+        android:name="com.example.pigfarm.HomeFragment"/>
+    <fragment
+        android:id="@+id/recommend"
+        android:name="com.example.pigfarm.RecommendFragment"/>
+    <fragment
+        android:id="@+id/mypage"
+        android:name="com.example.pigfarm.MypageFragment"/>
+
+</navigation>

@@ -64,8 +64,8 @@ public class MypageFragment extends Fragment {
                         Toast.makeText(getContext(), "1주차에서 5주차만 가능합니다.", Toast.LENGTH_SHORT).show();
                     }
                     else {
-                        tv_inputArray[int_week-1].setText(str_input);
-                        tv_outputArray[int_week-1].setText(str_output);
+                        tv_inputArray[int_week-1].setText(str_input + " kcal");
+                        tv_outputArray[int_week-1].setText(str_output + " kcal");
                     }
                 }catch(NumberFormatException e){
                     Toast.makeText(getContext(), "숫자만 입력하세요", Toast.LENGTH_SHORT).show();

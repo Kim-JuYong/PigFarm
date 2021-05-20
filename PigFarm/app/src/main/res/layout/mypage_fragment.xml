@@ -87,6 +87,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
+            android:text="0 kcal"
             android:textSize="17sp" />
 
         <View
@@ -100,6 +101,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
+            android:text="0 kcal"
             android:textSize="17sp" />
 
     </LinearLayout>
@@ -133,6 +135,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
+            android:text="0 kcal"
             android:textSize="17sp" />
 
         <View
@@ -146,6 +149,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
+            android:text="0 kcal"
             android:textSize="17sp" />
 
     </LinearLayout>
@@ -179,6 +183,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
+            android:text="0 kcal"
             android:textSize="17sp" />
 
         <View
@@ -192,6 +197,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
+            android:text="0 kcal"
             android:textSize="17sp" />
 
     </LinearLayout>
@@ -225,6 +231,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
+            android:text="0 kcal"
             android:textSize="17sp" />
 
         <View
@@ -238,6 +245,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
+            android:text="0 kcal"
             android:textSize="17sp" />
 
     </LinearLayout>
@@ -271,6 +279,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
+            android:text="0 kcal"
             android:textSize="17sp" />
 
         <View
@@ -284,6 +293,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_horizontal|center_vertical"
+            android:text="0 kcal"
             android:textSize="17sp" />
 
     </LinearLayout>

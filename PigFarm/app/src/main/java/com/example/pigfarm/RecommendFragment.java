@@ -1,6 +1,7 @@
 package com.example.pigfarm;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ public class RecommendFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.recommend_fragment, container, false);
+        View rootView =  inflater.inflate(R.layout.recommend_fragment, container, false);
+        return rootView;
     }
 }

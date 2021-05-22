@@ -1,5 +1,6 @@
 package com.example.pigfarm;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,14 @@ import androidx.fragment.app.Fragment;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+
+import java.util.ArrayList;
+
 
 public class MypageFragment extends Fragment {
     final private int tv_weekId[] = {R.id.tv_week0, R.id.tv_week1, R.id.tv_week2, R.id.tv_week3, R.id.tv_week4};
@@ -27,6 +36,8 @@ public class MypageFragment extends Fragment {
     TextView tv_outputArray[] = new TextView[5];
     EditText my_inputArray[] = new EditText[3];
     Button my_button;
+    private LineChart ct_input;
+    private LineChart ct_output;
 
     @Nullable
     @Override
@@ -66,8 +77,10 @@ public class MypageFragment extends Fragment {
                     else {
                         tv_inputArray[int_week-1].setText(str_input + " kcal");
                         tv_outputArray[int_week-1].setText(str_output + " kcal");
+                        inputChartSetData();
+                        outputChartSetData();
                     }
-                }catch(NumberFormatException e){
+                }catch(NumberFormatException e) {
                     Toast.makeText(getContext(), "숫자만 입력하세요", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -93,6 +106,8 @@ public class MypageFragment extends Fragment {
     }
 
     public void Init(View v) {
+        ct_input = v.findViewById(R.id.chart_input);
+        ct_output = v.findViewById(R.id.chart_output);
         for(int i=0; i<5; i++) {
             final int index;
             index = i;
@@ -105,6 +120,57 @@ public class MypageFragment extends Fragment {
             my_inputArray[index] = (EditText)v.findViewById(my_input[i]);
         }
         my_button = (Button)v.findViewById(R.id.myButton);
+        inputChartSetData();
+        outputChartSetData();
+    }
+
+    public void inputChartSetData() {
+        ArrayList<Entry> values = new ArrayList<>();
+
+        for (int i = 0; i < 5; i++) {
+            String val_str[] = tv_inputArray[i].getText().toString().split(" ");
+            int val = Integer.parseInt(val_str[0]);
+            values.add(new Entry(i, val));
+        }
+
+        LineDataSet set;
+        set = new LineDataSet(values, "주간 섭취 칼로리");
+
+        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
+        dataSets.add(set); // 데이터 셋을 추가
+
+        LineData data = new LineData(dataSets);
+
+        set.setColor(Color.BLACK);
+        set.setCircleColor(Color.BLACK);
+
+        ct_input.setData(data); // 그래프에 데이터를 설정
+    }
+
+    public void outputChartSetData() {
+        ArrayList<Entry> values = new ArrayList<>();
+
+        for (int i = 0; i < 5; i++) {
+            String val_str[] = tv_outputArray[i].getText().toString().split(" ");
+            int val = Integer.parseInt(val_str[0]);
+            values.add(new Entry(i, val));
+        }
+
+        LineDataSet set;
+        set = new LineDataSet(values, "주간 소비 칼로리");
+
+        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
+        dataSets.add(set); // add the data sets
+
+        // create a data object with the data sets
+        LineData data = new LineData(dataSets);
+
+        // black lines and points
+        set.setColor(Color.BLACK);
+        set.setCircleColor(Color.BLACK);
+
+        // set data
+        ct_output.setData(data);
     }
 
 }

@@ -7,4 +7,5 @@
         android:layout_height="match_parent"
         android:text="recommend"
         android:textSize="100sp"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

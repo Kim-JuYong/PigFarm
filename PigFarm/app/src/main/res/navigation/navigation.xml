@@ -15,5 +15,9 @@
     <fragment
         android:id="@+id/mypage"
         android:name="com.example.pigfarm.MypageFragment"/>
+    <activity
+        android:id="@+id/photoActivity"
+        android:name="com.example.pigfarm.PhotoActivity"
+        android:label="PhotoActivity" />
 
 </navigation>

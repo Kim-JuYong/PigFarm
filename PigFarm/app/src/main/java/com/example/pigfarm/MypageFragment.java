@@ -89,7 +89,7 @@ public class MypageFragment extends Fragment {
         return v;
     }
 
-    public static String getDay(String yearMonth, int w, int day) {
+    private static String getDay(String yearMonth, int w, int day) {
         SimpleDateFormat simpleWeekFormat = new SimpleDateFormat("MM월 dd일");
         Calendar week = Calendar.getInstance();
         int y = Integer.parseInt(yearMonth.substring(0,4));
@@ -105,7 +105,7 @@ public class MypageFragment extends Fragment {
         return simpleWeekFormat.format(week.getTime());
     }
 
-    public void Init(View v) {
+    private void Init(View v) {
         ct_input = v.findViewById(R.id.chart_input);
         ct_output = v.findViewById(R.id.chart_output);
         for(int i=0; i<5; i++) {
@@ -124,7 +124,7 @@ public class MypageFragment extends Fragment {
         outputChartSetData();
     }
 
-    public void inputChartSetData() {
+    private void inputChartSetData() {
         ArrayList<Entry> values = new ArrayList<>();
 
         for (int i = 0; i < 5; i++) {
@@ -147,7 +147,7 @@ public class MypageFragment extends Fragment {
         ct_input.setData(data); // 그래프에 데이터를 설정
     }
 
-    public void outputChartSetData() {
+    private void outputChartSetData() {
         ArrayList<Entry> values = new ArrayList<>();
 
         for (int i = 0; i < 5; i++) {

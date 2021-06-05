@@ -1,5 +1,6 @@
 package com.example.pigfarm;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -18,6 +19,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
@@ -125,51 +129,90 @@ public class MypageFragment extends Fragment {
     }
 
     private void inputChartSetData() {
+        XAxis xAxis = ct_input.getXAxis();
+        YAxis yAxis = ct_input.getAxisLeft();
+
         ArrayList<Entry> values = new ArrayList<>();
 
         for (int i = 0; i < 5; i++) {
             String val_str[] = tv_inputArray[i].getText().toString().split(" ");
             int val = Integer.parseInt(val_str[0]);
-            values.add(new Entry(i, val));
+            values.add(new Entry(val, i));
         }
 
         LineDataSet set;
-        set = new LineDataSet(values, "주간 섭취 칼로리");
+        set = new LineDataSet(values, "주간 섭취 칼로리 / 단위 : kcal");
+
+        ArrayList<String> labels = new ArrayList<String>();
+        for (int i = 0; i < 5; i++) {
+            String week_label = i+1 + "주차";
+            labels.add(week_label);
+        }
 
         ArrayList<ILineDataSet> dataSets = new ArrayList<>();
         dataSets.add(set); // 데이터 셋을 추가
 
-        LineData data = new LineData(dataSets);
+        LineData data = new LineData(labels, dataSets);
 
         set.setColor(Color.BLACK);
         set.setCircleColor(Color.BLACK);
+        set.setDrawCubic(true); // 선 둥글게 만들기
+        set.setDrawFilled(true); // 그래프 밑부분 색
 
+        xAxis.setDrawGridLines(false);
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+
+        yAxis.setDrawGridLines(false);
+        yAxis.setEnabled(false);
+
+        MyMarkerView mv = new MyMarkerView(getContext(), R.layout.marker_view);
+        ct_input.setMarkerView(mv);
+        ct_input.setMaxVisibleValueCount(5); // 최대 보이는 그래프 개수를 5개로 정해주었다.
         ct_input.setData(data); // 그래프에 데이터를 설정
     }
 
     private void outputChartSetData() {
+        XAxis xAxis = ct_output.getXAxis();
+        YAxis yAxis = ct_output.getAxisLeft();
+
         ArrayList<Entry> values = new ArrayList<>();
 
         for (int i = 0; i < 5; i++) {
             String val_str[] = tv_outputArray[i].getText().toString().split(" ");
             int val = Integer.parseInt(val_str[0]);
-            values.add(new Entry(i, val));
+            values.add(new Entry(val, i));
         }
 
         LineDataSet set;
-        set = new LineDataSet(values, "주간 소비 칼로리");
+        set = new LineDataSet(values, "주간 소비 칼로리 / 단위 : kcal");
+
+        ArrayList<String> labels = new ArrayList<String>();
+        for (int i = 0; i < 5; i++) {
+            String week_label = i+1 + "주차";
+            labels.add(week_label);
+        }
 
         ArrayList<ILineDataSet> dataSets = new ArrayList<>();
         dataSets.add(set); // add the data sets
 
         // create a data object with the data sets
-        LineData data = new LineData(dataSets);
+        LineData data = new LineData(labels, dataSets);
 
         // black lines and points
         set.setColor(Color.BLACK);
         set.setCircleColor(Color.BLACK);
+        set.setDrawCubic(true); // 선 둥글게 만들기
+        set.setDrawFilled(true); // 그래프 밑부분 색
 
-        // set data
+        xAxis.setDrawGridLines(false);
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+
+        yAxis.setDrawGridLines(false);
+        yAxis.setEnabled(false);
+
+        MyMarkerView mv = new MyMarkerView(getContext(), R.layout.marker_view);
+        ct_output.setMarkerView(mv);
+        ct_output.setMaxVisibleValueCount(5); // 최대 보이는 그래프 개수를 5개로 정해주었다.
         ct_output.setData(data);
     }
 

@@ -34,7 +34,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="회원 프로필"
+                    android:text="My Profile"
                     android:textStyle="bold"
                     android:textSize="18sp" />
 
@@ -127,9 +127,9 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
-                android:textSize="8sp"
+                android:textSize="7sp"
                 android:backgroundTint="@color/teal_200"
-                android:text="수정" />
+                android:text="Edit" />
         </LinearLayout>
 
         <View

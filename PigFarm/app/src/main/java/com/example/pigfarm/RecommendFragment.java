@@ -53,8 +53,8 @@ public class RecommendFragment extends Fragment {
                     DecimalFormat form = new DecimalFormat("#.###");
 
                     recommend_tvArray[0].setText("회원 이름 : " + profile_name);
-                    recommend_tvArray[1].setText("회원 키 : " + profile_height);
-                    recommend_tvArray[2].setText("회원 몸무게 : " + profile_weight);
+                    recommend_tvArray[1].setText("회원 키 : " + profile_height + " cm");
+                    recommend_tvArray[2].setText("회원 몸무게 : " + profile_weight + " kg");
                     recommend_tvArray[3].setText(" 하루 권장 칼로리 : " + form.format(today_calorie) + " kcal ");
                     recommend_tvArray[4].setText(" 표준 체중 : " + form.format(standard_weight) + " kg ");
 

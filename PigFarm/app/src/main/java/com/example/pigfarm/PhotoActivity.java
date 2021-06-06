@@ -11,35 +11,31 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.FileProvider;
-import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.Fragment;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class PhotoActivity extends FragmentActivity {
+public class PhotoActivity extends AppCompatActivity {
+    File photofile2;
     final private static String TAG = "pigfarm";
-    Button btn_photo;
-    ImageView iv_photo;
     final static int TAKE_PICTURE = 1;
     String mCurrentPhotoPath;
     final static int REQUEST_TAKE_PHOTO = 1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_fragment);
-        iv_photo = findViewById(R.id.image_view);
-        btn_photo = findViewById(R.id.meal_photo_register_button);
+        Intent MainIntent = new Intent(this, MainActivity.class);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if(checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
                 Log.d(TAG, "권한 설정 완료");
@@ -50,14 +46,8 @@ public class PhotoActivity extends FragmentActivity {
                         Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
             }
         }
-        btn_photo.setOnClickListener(new View.OnClickListener() {
-            @Override public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.meal_photo_register_button: dispatchTakePictureIntent();
-                    break;
-                }
-            }
-        });
+        dispatchTakePictureIntent();
+
     }
     @Override public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -74,13 +64,18 @@ public class PhotoActivity extends FragmentActivity {
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile( imageFileName, ".jpg", storageDir );
         mCurrentPhotoPath = image.getAbsolutePath();
+
         return image;
     }
     public void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        Intent intent = new Intent(this, MainActivity.class);
         if(takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            File photoFile = null; try { photoFile = createImageFile();
-            } catch (IOException ex) { }
+            File photoFile = null;
+            try { photoFile = createImageFile();
+            }
+            catch (IOException ex) { }
+
             if(photoFile != null) {
                 Uri photoURI = FileProvider.getUriForFile(this, "com.example.pigfarm.fileprovider", photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
@@ -91,19 +86,25 @@ public class PhotoActivity extends FragmentActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
+
         try {
             switch (requestCode) {
                 case REQUEST_TAKE_PHOTO: {
                     if (resultCode == RESULT_OK) {
+                        Log.v("d", "ok");
                         File file = new File(mCurrentPhotoPath);
+                        //File file = new File("/Users/juyong/Desktop/PigFarm/PigFarm/PigFarm/app/src/main/res/drawable/test.jpeg");
+                        photofile2 = file;
                         Bitmap bitmap;
+                        SendClient sendClient = new SendClient();
+                        sendClient.start();
+                        RecvClient recvClient = new RecvClient();
+                        recvClient.start();
                         if (Build.VERSION.SDK_INT >= 29) {
                             ImageDecoder.Source source = ImageDecoder.createSource(getContentResolver(), Uri.fromFile(file));
                             try {
                                 bitmap = ImageDecoder.decodeBitmap(source);
                                 if (bitmap != null) {
-                                    Log.v("d", "succeed");
-                                    iv_photo.setImageBitmap(bitmap);
                                 }
                             }
                             catch (IOException e){
@@ -111,16 +112,16 @@ public class PhotoActivity extends FragmentActivity {
                                 e.printStackTrace();
                             }
                         }
-                        else {
+                        /*else {
                             try {
-                                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), Uri.fromFile(file));
-                                if (bitmap != null) { iv_photo.setImageBitmap(bitmap);
+                                //bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), Uri.fromFile(file));
+                                if (bitmap != null) {
                                 }
                             }
                             catch (IOException e) {
                                 e.printStackTrace();
                             }
-                        }
+                        }*/
                     }
                     break;
                 }
@@ -130,9 +131,18 @@ public class PhotoActivity extends FragmentActivity {
             error.printStackTrace();
         }
     }
-
-
-
+    private class SendClient extends Thread{
+        public void run(){
+            ServerClientSend client = new ServerClientSend();
+            client.clientTest(photofile2);
+        }
+    }
+    private class RecvClient extends Thread{
+        public void run(){
+            ServerClientRecv Recvclient = new ServerClientRecv();
+            Recvclient.RecvText();
+        }
+    }
 
 }
 

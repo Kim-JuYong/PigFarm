@@ -1,0 +1,71 @@
+package com.example.pigfarm;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
+public class ServerClientSend {
+    public static final int DEFAULT_BUFFER_SIZE = 10000;
+    InetAddress serverIP = null;            //String serverIP = "127.0.0.1";
+    int port = 24546;   //int port = 9999;
+
+
+
+    public void clientTest(File file){
+        if (!file.exists()) {
+            System.out.println("File not Exist.");
+            System.exit(0);
+        }
+
+        long fileSize = file.length();
+        long totalReadBytes = 0;
+        byte[] buffer = new byte[DEFAULT_BUFFER_SIZE];
+        int readBytes;
+        double startTime = 0;
+
+        try {
+            serverIP = InetAddress.getByName("220.84.169.150");
+            FileInputStream fis = new FileInputStream(file);
+            Socket socket = new Socket(serverIP, port);
+            if(!socket.isConnected()){
+                System.out.println("Socket Connect Error.");
+                System.exit(0);
+            }
+
+            startTime = System.currentTimeMillis();
+            OutputStream os = socket.getOutputStream();
+            while ((readBytes = fis.read(buffer)) > 0) {
+                os.write(buffer, 0, readBytes);
+                totalReadBytes += readBytes;
+                System.out.println("In progress: " + totalReadBytes + "/"
+                        + fileSize + " Byte(s) ("
+                        + (totalReadBytes * 100 / fileSize) + " %)");
+            }
+
+            System.out.println("File transfer completed.");
+            fis.close();
+            os.close();
+            socket.close();
+        } catch (UnknownHostException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        double endTime = System.currentTimeMillis();
+        double diffTime = (endTime - startTime)/ 1000;;
+        double transferSpeed = (fileSize / 1000)/ diffTime;
+
+        System.out.println("time: " + diffTime+ " second(s)");
+        System.out.println("Average transfer speed: " + transferSpeed + " KB/s");
+    }
+}
+
+

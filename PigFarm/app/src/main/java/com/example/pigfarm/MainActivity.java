@@ -5,26 +5,33 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-
+    //ImageView imageView;
     private BottomNavigationView bottomNavigationView; // 바텀네비게이션 뷰
     private FragmentManager manager = getSupportFragmentManager();
     private FragmentTransaction transaction;
 
     private HomeFragment homeFragment = new HomeFragment();
-    private AnalyzeFragment analyzeFragment = new AnalyzeFragment();
+    private CalendarFragment analyzeFragment = new CalendarFragment();
     private RecommendFragment recommendFragment = new RecommendFragment();
     private MypageFragment mypageFragment = new MypageFragment();
 
+    ImageView i;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
@@ -56,4 +63,5 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
 }

@@ -43,4 +43,6 @@ dependencies {
 
     implementation 'com.github.PhilJay:MPAndroidChart:v2.2.4'
     implementation 'gun0912.ted:tedpermission:2.2.3'
+
+    implementation 'org.json:json:20190722' // json 파싱하는 라이브러리
 }

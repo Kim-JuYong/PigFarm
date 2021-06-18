@@ -1,20 +1,49 @@
 package com.example.pigfarm;
 
+import android.icu.text.Edits;
+import android.util.JsonReader;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.net.URLDecoder;
 import java.net.UnknownHostException;
+import java.util.Iterator;
+import java.util.Set;
 
 public class ServerClientSend {
-    public static final int DEFAULT_BUFFER_SIZE = 10000;
+    public static final int DEFAULT_BUFFER_SIZE = 4096;
     InetAddress serverIP = null;            //String serverIP = "127.0.0.1";
     int port = 24546;   //int port = 9999;
 
+    public void jsonParsing(String jsonString) {
+        try {
+            JSONObject jobject = new JSONObject(jsonString);
+            Iterator<String> keyList = jobject.keys();
+            while(keyList.hasNext()) {
+                String a = keyList.next();
+                System.out.println(a);
+                System.out.println(jobject.getString(a));
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
+
+    }
 
     public void clientTest(File file){
         if (!file.exists()) {
@@ -32,6 +61,7 @@ public class ServerClientSend {
             serverIP = InetAddress.getByName("220.84.169.150");
             FileInputStream fis = new FileInputStream(file);
             Socket socket = new Socket(serverIP, port);
+            BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             if(!socket.isConnected()){
                 System.out.println("Socket Connect Error.");
                 System.exit(0);
@@ -48,6 +78,9 @@ public class ServerClientSend {
             }
 
             System.out.println("File transfer completed.");
+            String read = input.readLine(); // 서버에서 보낸 값
+            System.out.println(read);
+            jsonParsing(read);
             fis.close();
             os.close();
             socket.close();

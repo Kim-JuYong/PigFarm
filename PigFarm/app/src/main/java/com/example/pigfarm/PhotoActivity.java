@@ -98,8 +98,8 @@ public class PhotoActivity extends AppCompatActivity {
                         Bitmap bitmap;
                         SendClient sendClient = new SendClient();
                         sendClient.start();
-                        RecvClient recvClient = new RecvClient();
-                        recvClient.start();
+                        //RecvClient recvClient = new RecvClient(); // 요거랑 관련된거 다 안써도 될듯
+                        //recvClient.start(); //
                         if (Build.VERSION.SDK_INT >= 29) {
                             ImageDecoder.Source source = ImageDecoder.createSource(getContentResolver(), Uri.fromFile(file));
                             try {

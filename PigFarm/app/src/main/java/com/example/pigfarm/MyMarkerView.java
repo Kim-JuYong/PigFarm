@@ -1,4 +1,4 @@
-/*package com.example.pigfarm;
+package com.example.pigfarm;
 
 import android.content.Context;
 import android.widget.TextView;
@@ -37,4 +37,4 @@ public class MyMarkerView extends MarkerView {
         // this will cause the marker-view to be above the selected value
         return -getHeight();
     }
-}*/
+}

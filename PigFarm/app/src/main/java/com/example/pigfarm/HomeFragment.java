@@ -58,7 +58,6 @@ public class HomeFragment extends Fragment {
             public void onClick(View v) {
                 WorkRegisterDialog dialog = new WorkRegisterDialog(getContext());
                 dialog.callDialog();
-
             }
         });
     }

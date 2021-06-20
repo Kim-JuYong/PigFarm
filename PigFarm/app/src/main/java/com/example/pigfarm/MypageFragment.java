@@ -1,15 +1,14 @@
-/*package com.example.pigfarm;
+package com.example.pigfarm;
 
-import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,7 +18,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import com.github.mikephil.charting.charts.LineChart;
-import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.components.YAxis;
 import com.github.mikephil.charting.data.Entry;
@@ -28,20 +26,52 @@ import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
+class Pair{
+    private int preMonth;
+    private int preDay;
+    private int nowMonth;
+    private int nowDay;
+    public Pair(int preMonth, int preDay){
+        this.preMonth = preMonth;
+        this.preDay = preDay;
+        this.nowMonth = 0;
+        this.nowDay = 0;
+    }
+    public int getPreMonth() {
+        return preMonth;
+    }
+    public int getPreDay() {
+        return preDay;
+    }
+    public int getNowMonth() {
+        return nowMonth;
+    }
+    public int getNowDay() {
+        return nowDay;
+    }
+    public void setNowMonth(int nowMonth) {
+        this.nowMonth = nowMonth;
+    }
+    public void setNowDay(int nowDay) {
+        this.nowDay = nowDay;
+    }
+}
 
 public class MypageFragment extends Fragment {
     final private int tv_weekId[] = {R.id.tv_week0, R.id.tv_week1, R.id.tv_week2, R.id.tv_week3, R.id.tv_week4};
     final private int tv_inputId[] = {R.id.tv_input0, R.id.tv_input1, R.id.tv_input2, R.id.tv_input3, R.id.tv_input4};
     final private int tv_outputId[] = {R.id.tv_output0, R.id.tv_output1, R.id.tv_output2, R.id.tv_output3, R.id.tv_output4};
-    final private int my_input[] = {R.id.et_week, R.id.et_input, R.id.et_output};
     TextView tv_weekArray[] = new TextView[5];
     TextView tv_inputArray[] = new TextView[5];
     TextView tv_outputArray[] = new TextView[5];
     EditText my_inputArray[] = new EditText[3];
-    Button my_button;
     private LineChart ct_input;
     private LineChart ct_output;
+    List<Pair> pairList = new LinkedList<>();
+    private int weekHealth[] = new int[5];
 
     @Nullable
     @Override
@@ -64,37 +94,18 @@ public class MypageFragment extends Fragment {
             String saturday = getDay(time, index, 1);
             tv_weekArray[index] = (TextView)v.findViewById(tv_weekId[i]);
             tv_weekArray[index].setText(sunday + " - " + saturday);
+            weekHealth[index] = 0;
         }
 
-        my_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try{
-                    String str_week = my_inputArray[0].getText().toString().trim();
-                    String str_input = my_inputArray[1].getText().toString().trim();
-                    String str_output = my_inputArray[2].getText().toString().trim();
-
-                    int int_week = Integer.parseInt(str_week);
-                    if (int_week < 1 || int_week > 5) {
-                        Toast.makeText(getContext(), "1주차에서 5주차만 가능합니다.", Toast.LENGTH_SHORT).show();
-                    }
-                    else {
-                        tv_inputArray[int_week-1].setText(str_input + " kcal");
-                        tv_outputArray[int_week-1].setText(str_output + " kcal");
-                        inputChartSetData();
-                        outputChartSetData();
-                    }
-                }catch(NumberFormatException e) {
-                    Toast.makeText(getContext(), "숫자만 입력하세요", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+        drawGraph();
 
         return v;
     }
 
-    private static String getDay(String yearMonth, int w, int day) {
+    private String getDay(String yearMonth, int w, int day) {
         SimpleDateFormat simpleWeekFormat = new SimpleDateFormat("MM월 dd일");
+        SimpleDateFormat monthFormat = new SimpleDateFormat("MM");
+        SimpleDateFormat dayFormat = new SimpleDateFormat("dd");
         Calendar week = Calendar.getInstance();
         int y = Integer.parseInt(yearMonth.substring(0,4));
         int m = Integer.parseInt(yearMonth.substring(6,8))-1;
@@ -102,10 +113,16 @@ public class MypageFragment extends Fragment {
         week.set(Calendar.YEAR, y);
         week.set(Calendar.MONTH, m);
         week.set(Calendar.WEEK_OF_MONTH, w+1);
-        if (day == 0)
+        if (day == 0) {
             week.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
-        else
+            Pair pair = new Pair(Integer.parseInt(monthFormat.format(week.getTime())), Integer.parseInt(dayFormat.format(week.getTime())));
+            pairList.add(pair);
+        }
+        else {
             week.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
+            pairList.get(w).setNowMonth(Integer.parseInt(monthFormat.format(week.getTime())));
+            pairList.get(w).setNowDay(Integer.parseInt(dayFormat.format(week.getTime())));
+        }
         return simpleWeekFormat.format(week.getTime());
     }
 
@@ -118,14 +135,6 @@ public class MypageFragment extends Fragment {
             tv_inputArray[index] = (TextView)v.findViewById(tv_inputId[i]);
             tv_outputArray[index] = (TextView)v.findViewById(tv_outputId[i]);
         }
-        for(int i=0; i<3; i++) {
-            final int index;
-            index = i;
-            my_inputArray[index] = (EditText)v.findViewById(my_input[i]);
-        }
-        my_button = (Button)v.findViewById(R.id.myButton);
-        inputChartSetData();
-        outputChartSetData();
     }
 
     private void inputChartSetData() {
@@ -216,4 +225,68 @@ public class MypageFragment extends Fragment {
         ct_output.setData(data);
     }
 
-}*/
+    private void getDataFromDatabase() {
+        String myPath = "/data/data/com.example.pigfarm/databases/" + "InnerDatabase(SQLite).db";
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
+        Cursor cursor = database.rawQuery("SELECT * FROM work_table", null);
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+                do {
+                    int checkMonth = Integer.parseInt(cursor.getString(4));
+                    int checkDay = Integer.parseInt(cursor.getString(5));
+                    if (checkMonth == pairList.get(2).getNowMonth()) {
+                        if (pairList.get(0).getNowDay() >= checkDay) {
+                            weekHealth[0] += Integer.parseInt(cursor.getString(3));
+                        }
+                        else if (pairList.get(1).getNowDay() >= checkDay) {
+                            weekHealth[1] += Integer.parseInt(cursor.getString(3));
+                        }
+                        else if (pairList.get(2).getNowDay() >= checkDay) {
+                            weekHealth[2] += Integer.parseInt(cursor.getString(3));
+                        }
+                        else if (pairList.get(3).getNowDay() >= checkDay) {
+                            weekHealth[3] += Integer.parseInt(cursor.getString(3));
+                        }
+                        else if (pairList.get(4).getPreDay() <= checkDay) {
+                            if (pairList.get(4).getNowMonth() > checkMonth) {
+                                weekHealth[4] += Integer.parseInt(cursor.getString(3));
+                            }
+                            else {
+                                if (pairList.get(4).getNowDay() >= checkDay) {
+                                    weekHealth[4] += Integer.parseInt(cursor.getString(3));
+                                }
+                            }
+                        }
+                    }
+                    else if (checkMonth == pairList.get(2).getNowMonth()-1) {
+                        if (pairList.get(0).getPreMonth() == checkMonth) {
+                            if (pairList.get(0).getPreDay() <=  checkDay)
+                                weekHealth[0] += Integer.parseInt(cursor.getString(3));
+                        }
+                    }
+                    else if (checkMonth == pairList.get(2).getNowMonth()+1) {
+                        if (pairList.get(4).getNowMonth() == checkMonth) {
+                            if (pairList.get(4).getNowDay() >= checkDay)
+                                weekHealth[4] += Integer.parseInt(cursor.getString(3));
+                        }
+                    }
+                } while (cursor.moveToNext());
+            }
+            cursor.close();
+        }
+    }
+
+    private void tableSetData() {
+        for(int i = 0; i < 5; i++) {
+            tv_outputArray[i].setText(weekHealth[i] + " kcal");
+        }
+    }
+
+    private void drawGraph() {
+        getDataFromDatabase();
+        tableSetData();
+        inputChartSetData();
+        outputChartSetData();
+    }
+
+}

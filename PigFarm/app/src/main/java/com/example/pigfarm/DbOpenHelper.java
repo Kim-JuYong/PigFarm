@@ -7,6 +7,8 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
 public class DbOpenHelper {
 
     private static final String DATABASE_NAME = "InnerDatabase(SQLite).db";
@@ -46,6 +48,7 @@ public class DbOpenHelper {
     public void create(){
         mDBHelper.onCreate(mDB);
     }
+    public void update() { mDBHelper.onUpgrade(mDB, 1, 2);}
 
     public void close(){
         mDB.close();
@@ -55,8 +58,8 @@ public class DbOpenHelper {
         values.put(WorkDataBase.CreateWorkDB.what_work, what_work);
         values.put(WorkDataBase.CreateWorkDB.how_work, how_work);
         values.put(WorkDataBase.CreateWorkDB.use_calorie, use_calorie);
-        values.put(WorkDataBase.CreateWorkDB.months, work_month);
-        values.put(WorkDataBase.CreateWorkDB.day, work_day);
+        values.put(WorkDataBase.CreateWorkDB.work_month, work_month);
+        values.put(WorkDataBase.CreateWorkDB.work_day, work_day);
         return mDB.insert(WorkDataBase.CreateWorkDB._TABLENAME0, null, values);
     }
     public Cursor selectColumns(){
@@ -66,5 +69,4 @@ public class DbOpenHelper {
     public void deleteAllColumns() {
         mDB.delete(WorkDataBase.CreateWorkDB._TABLENAME0, null, null);
     }
-
 }

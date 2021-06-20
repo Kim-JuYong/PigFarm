@@ -35,16 +35,13 @@ public class MainActivity extends AppCompatActivity {
     private HomeFragment homeFragment = new HomeFragment();
     private CalendarFragment analyzeFragment = new CalendarFragment();
     private RecommendFragment recommendFragment = new RecommendFragment();
-    //private MypageFragment mypageFragment = new MypageFragment();
+    private MypageFragment mypageFragment = new MypageFragment();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
-
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, homeFragment).commitAllowingStateLoss();
@@ -66,10 +63,10 @@ public class MainActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, recommendFragment).commitAllowingStateLoss();
                         break;
                     }
-                    /*case R.id.mypage: {
+                    case R.id.mypage: {
                         getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, mypageFragment).commitAllowingStateLoss();
                         break;
-                    }*/
+                    }
                 }
                 return true;
             }

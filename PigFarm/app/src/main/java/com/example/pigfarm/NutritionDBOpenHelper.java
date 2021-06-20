@@ -1,12 +1,15 @@
 package com.example.pigfarm;
 
 
+import android.content.ClipData;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
 
 public class NutritionDBOpenHelper {
 
@@ -66,5 +69,4 @@ public class NutritionDBOpenHelper {
     public void deleteAllColumns() {
         mDB.delete(NutritionDataBase.CreateNutritionDB._TABLENAME1, null, null);
     }
-
 }

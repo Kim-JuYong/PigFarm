@@ -54,7 +54,7 @@ public class CalendarFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 mDbOpenHelper.deleteAllColumns();
-                mDbOpenHelper2.deleteAllColumns();
+                //mDbOpenHelper2.deleteAllColumns();
                 list.clear();
                 adapter.notifyDataSetChanged();
             }

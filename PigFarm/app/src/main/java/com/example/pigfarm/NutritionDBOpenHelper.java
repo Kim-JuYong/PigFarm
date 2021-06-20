@@ -87,4 +87,7 @@ public class NutritionDBOpenHelper {
         cursor.close();
         return ItemData; // return contact list
     }
+    public void deleteAllColumns() {
+        mDB.delete("Nutrition", null, null);
+    }
 }

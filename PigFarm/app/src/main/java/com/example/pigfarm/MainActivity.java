@@ -212,6 +212,12 @@ public class MainActivity extends AppCompatActivity {
                                             final_dialog.cancel();
                                         }
                                     });
+                                    final_cancel.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                            final_dialog.cancel();
+                                        }
+                                    });
 
                                 }
                                 else{

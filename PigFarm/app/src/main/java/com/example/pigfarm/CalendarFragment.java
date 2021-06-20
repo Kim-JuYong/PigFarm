@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CalendarView;
 
 import androidx.annotation.NonNull;
@@ -20,10 +21,12 @@ import java.util.List;
 public class CalendarFragment extends Fragment {
     RecyclerView recyclerView;
     CalendarView calendarView;
+    Button delete_all_btn;
     ArrayList<ItemClass> list = new ArrayList<>();
     ArrayList<Item2Class> dbList = new ArrayList<>();
     CalendarRecyclerAdapter adapter;
     NutritionDBOpenHelper mDbOpenHelper = new NutritionDBOpenHelper(getContext());
+    DbOpenHelper mDbOpenHelper2 = new DbOpenHelper(getContext());
     String getDay = "";
     String getMonth = "";
     private SQLiteDatabase db;
@@ -33,6 +36,7 @@ public class CalendarFragment extends Fragment {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.calendar_fragment, container, false);
 
         RecyclerView recyclerView = rootView.findViewById(R.id.calendar_recycler_view);
+        delete_all_btn = rootView.findViewById(R.id.delete_all_button);
 
         recyclerView.setHasFixedSize(true);
 
@@ -46,7 +50,16 @@ public class CalendarFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        delete_all_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDbOpenHelper.deleteAllColumns();
+                mDbOpenHelper2.deleteAllColumns();
+                list.clear();
+                adapter.notifyDataSetChanged();
+            }
 
+        });
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {

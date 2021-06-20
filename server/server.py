@@ -13,20 +13,31 @@ import threading
 import json
 import select
 
+'''
+etc..
+'''
+from time import sleep
+
 # db초기화가 여러번 되면 문제가 생겨 한번만 객체 생성해서 사용함
 db = DB()
+fmodel = FoodModel()
+fapi = FoodApi()
 
 def recvFile(client_socket, filename):
-    client_socket.settimeout(0.5)
+    client_socket.settimeout(0.1)
     with open(filename, 'wb') as f:
         try:
-            data = client_socket.recv(4096)
+            data = client_socket.recv(32768)
+            #print("recv data: ", len(data))
             while data:
                 f.write(data)
-                data = client_socket.recv(4096)
+                sleep(0.01)
+                data = client_socket.recv(32768)
+                #print("recv data: ", len(data))
         except Exception as ex:
             print(ex)
     f.close()
+    print("file closed")
 
 def makeSendData(foods):
     global db
@@ -37,26 +48,41 @@ def makeSendData(foods):
 
 
 def run(client_socket, addr):
-    fmodel = FoodModel()
-    fapi = FoodApi()
+    global fmodel
+    global fapi
 
-    filename = "./recvfiles/"+"recvfile_"+str(addr[1])+".jpg"
-    
-    recvFile(client_socket, filename)
-    print("file recevied")
-    
-    foods = fmodel.predict_image(filename)
-    data = makeSendData(foods)
-    print("send: ", data)
-    client_socket.sendall(json.dumps(data).encode('utf-8'))
-    result = client_socket.recv(1024)
-    if(result != '1'):
-        food = result.decode('utf-8')
+    data = client_socket.recv(1024)
+    print("recv type:",data[:3])
+    dataType = data[:3].decode('utf-8')
+    if(dataType == "str"):
+        print("input type : string")
+        result = client_socket.recv(1024)
+        print("recv foodname:", result)
+        result = result.decode('utf-8')
+        
+        food = result
+        print("foodname : ", food)
         calorie = fapi.getCalorie(food)
-        data = {}
-        data[food] = calorie
+        print("send calorie: ", calorie)
+        client_socket.sendall(calorie.encode('utf-8'))
+        print("send:", calorie)
+
+    elif(dataType == "img"):
+        print("input type : image")
+        filename = "./recvfiles/"+"recvfile_"+str(addr[1])+".jpg"
+    
+        recvFile(client_socket, filename)
+        print("file recevied")
+    
+        print("predict image")
+        foods = fmodel.predict_image(filename)
+        data = makeSendData(foods)
         client_socket.sendall(json.dumps(data).encode('utf-8'))
+        print("send: ", data)
+    
+    
     client_socket.close()
+    print("client close")
 
 
 

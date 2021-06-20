@@ -21,6 +21,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 import java.net.URLDecoder;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -28,7 +29,7 @@ public class ServerClientSend {
     public static final int DEFAULT_BUFFER_SIZE = 4096;
     InetAddress serverIP = null;            //String serverIP = "127.0.0.1";
     int port = 24546;   //int port = 9999;
-
+    ArrayList<String> food_name_result = new ArrayList<String>();
     public void jsonParsing(String jsonString) {
         try {
             JSONObject jobject = new JSONObject(jsonString);
@@ -37,6 +38,7 @@ public class ServerClientSend {
                 String a = keyList.next();
                 System.out.println(a);
                 System.out.println(jobject.getString(a));
+                food_name_result.add(a);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -45,7 +47,7 @@ public class ServerClientSend {
 
     }
 
-    public void clientTest(File file){
+    public ArrayList<String> clientTest(File file){
         if (!file.exists()) {
             System.out.println("File not Exist.");
             System.exit(0);
@@ -98,6 +100,7 @@ public class ServerClientSend {
 
         System.out.println("time: " + diffTime+ " second(s)");
         System.out.println("Average transfer speed: " + transferSpeed + " KB/s");
+        return food_name_result;
     }
 }
 

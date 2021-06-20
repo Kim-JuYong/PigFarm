@@ -47,12 +47,10 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-
         view.findViewById(R.id.meal_photo_register_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), PhotoActivity.class);
-                startActivity(intent);
+                getActivity().startActivityForResult(new Intent(getContext(), PhotoActivity.class), 0);
             }
         });
         view.findViewById(R.id.work_register_button).setOnClickListener(new View.OnClickListener() {
@@ -64,5 +62,15 @@ public class HomeFragment extends Fragment {
             }
         });
     }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode){
+            case 0:
+                System.out.println("fra");
+        }
+    }
+
 
 }

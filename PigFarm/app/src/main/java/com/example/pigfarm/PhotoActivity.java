@@ -21,21 +21,22 @@ import androidx.fragment.app.Fragment;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class PhotoActivity extends AppCompatActivity {
-    File photofile2;
+    File photofile;
     final private static String TAG = "pigfarm";
     final static int TAKE_PICTURE = 1;
     String mCurrentPhotoPath;
     final static int REQUEST_TAKE_PHOTO = 1;
-
+    ArrayList<String> food_name_list = new ArrayList<String>();
+    //Intent MainIntent = new Intent(this, MainActivity.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.home_fragment);
-        Intent MainIntent = new Intent(this, MainActivity.class);
+        setContentView(R.layout.wait_fragment);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if(checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
                 Log.d(TAG, "권한 설정 완료");
@@ -86,44 +87,17 @@ public class PhotoActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
-
         try {
             switch (requestCode) {
                 case REQUEST_TAKE_PHOTO: {
                     if (resultCode == RESULT_OK) {
                         Log.v("d", "ok");
                         File file = new File(mCurrentPhotoPath);
-                        //File file = new File("/Users/juyong/Desktop/PigFarm/PigFarm/PigFarm/app/src/main/res/drawable/test.jpeg");
-                        photofile2 = file;
+                        photofile = file;
                         Bitmap bitmap;
                         SendClient sendClient = new SendClient();
                         sendClient.start();
-                        //RecvClient recvClient = new RecvClient(); // 요거랑 관련된거 다 안써도 될듯
-                        //recvClient.start(); //
-                        if (Build.VERSION.SDK_INT >= 29) {
-                            ImageDecoder.Source source = ImageDecoder.createSource(getContentResolver(), Uri.fromFile(file));
-                            try {
-                                bitmap = ImageDecoder.decodeBitmap(source);
-                                if (bitmap != null) {
-                                }
-                            }
-                            catch (IOException e){
-                                Log.v("d", "fail");
-                                e.printStackTrace();
-                            }
-                        }
-                        /*else {
-                            try {
-                                //bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), Uri.fromFile(file));
-                                if (bitmap != null) {
-                                }
-                            }
-                            catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                        }*/
                     }
-                    break;
                 }
             }
         }
@@ -134,15 +108,19 @@ public class PhotoActivity extends AppCompatActivity {
     private class SendClient extends Thread{
         public void run(){
             ServerClientSend client = new ServerClientSend();
-            client.clientTest(photofile2);
+            food_name_list = client.clientTest(photofile);
+
+            System.out.println("complete");
+            for(String a : food_name_list){
+                System.out.println(a);
+            }
+            Intent data = new Intent();
+            data.putExtra("result", food_name_list);
+            setResult(0, data);
+            finish();
         }
     }
-    private class RecvClient extends Thread{
-        public void run(){
-            ServerClientRecv Recvclient = new ServerClientRecv();
-            Recvclient.RecvText();
-        }
-    }
+
 
 }
 

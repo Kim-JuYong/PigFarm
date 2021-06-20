@@ -1,6 +1,7 @@
 package com.example.pigfarm;
 
 
+import android.content.ClipData;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -86,7 +87,4 @@ public class NutritionDBOpenHelper {
         cursor.close();
         return ItemData; // return contact list
     }
-
-
-
 }

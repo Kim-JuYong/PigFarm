@@ -47,7 +47,6 @@ public class RegisterFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.home_fragment, container, false);
         recyclerView = v.findViewById(R.id.home_recycler);
-
         return v;
 
     }
@@ -93,6 +92,18 @@ public class RegisterFragment extends Fragment {
             public void onClick(View v) {
                 WorkRegisterDialog dialog = new WorkRegisterDialog(getContext());
                 dialog.callDialog();
+            }
+        });
+    }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode){
+            case 0:
+                System.out.println("fra");
+        }
+    }
 
             }
         });

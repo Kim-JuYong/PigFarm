@@ -2,9 +2,10 @@ package com.example.pigfarm;
 
 
 import android.content.Intent;
-import android.graphics.Color;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,10 +28,16 @@ public class RecommendFragment extends Fragment {
     TextView recommend_tvArray[] = new TextView[8];
     EditText recommend_etArray[] = new EditText[3];
     Button recommend_btArray[] = new Button[2];
+    private SharedPreferences preferences;
+    private SharedPreferences.Editor editor;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View rootView =  inflater.inflate(R.layout.recommend_fragment, container, false);
+
+        preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        editor = preferences.edit();
 
         Init(rootView);
 
@@ -51,6 +58,11 @@ public class RecommendFragment extends Fragment {
                     double today_calorie = standard_weight * 35;
 
                     DecimalFormat form = new DecimalFormat("#.###");
+
+                    editor.putString("profile_name", profile_name);
+                    editor.putString("profile_height", str_height);
+                    editor.putString("profile_weight", str_weight);
+                    editor.apply();
 
                     recommend_tvArray[0].setText("회원 이름 : " + profile_name);
                     recommend_tvArray[1].setText("회원 키 : " + profile_height + " cm");
@@ -90,6 +102,30 @@ public class RecommendFragment extends Fragment {
             final int index;
             index = i;
             recommend_btArray[index] = (Button)v.findViewById(recommend_bt[i]);
+        }
+
+        recommend_tvArray[0].setText("회원 이름 : " + preferences.getString("profile_name", "No"));
+        recommend_tvArray[1].setText("회원 키 : " + preferences.getString("profile_height", "" ) + " cm");
+        recommend_tvArray[2].setText("회원 몸무게 : " + preferences.getString("profile_weight", "") + " kg");
+
+        if (!preferences.getString("profile_name", "No").equals("No")) {
+            String profile_name = preferences.getString("profile_name", "No");
+            String str_height = preferences.getString("profile_height", "");
+            String str_weight = preferences.getString("profile_weight", "");
+
+            int profile_height = Integer.parseInt(str_height);
+            int profile_weight = Integer.parseInt(str_weight);
+
+            double standard_weight = (profile_height - 100) * 0.9;
+            double today_calorie = standard_weight * 35;
+
+            DecimalFormat form = new DecimalFormat("#.###");
+
+            recommend_tvArray[0].setText("회원 이름 : " + profile_name);
+            recommend_tvArray[1].setText("회원 키 : " + profile_height + " cm");
+            recommend_tvArray[2].setText("회원 몸무게 : " + profile_weight + " kg");
+            recommend_tvArray[3].setText(" 하루 권장 칼로리 : " + form.format(today_calorie) + " kcal ");
+            recommend_tvArray[4].setText(" 표준 체중 : " + form.format(standard_weight) + " kg ");
         }
     }
 

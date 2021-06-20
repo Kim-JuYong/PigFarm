@@ -34,6 +34,15 @@ public class MainActivity extends AppCompatActivity {
     private CalendarFragment analyzeFragment = new CalendarFragment();
     private RecommendFragment recommendFragment = new RecommendFragment();
     private MypageFragment mypageFragment = new MypageFragment();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, mypageFragment).commitAllowingStateLoss();
+
     NutritionDBOpenHelper mDbOpenHelper = new NutritionDBOpenHelper(this);
     String re_input = "";
     @Override
@@ -53,7 +62,11 @@ public class MainActivity extends AppCompatActivity {
                 transaction = manager.beginTransaction();
                 switch (item.getItemId()) {
                     case R.id.home: {
+
+                        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, mypageFragment).commitAllowingStateLoss();
+
                         getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, recommendFragment).commitAllowingStateLoss();
+
                         break;
                     }
                     case R.id.analyze: {

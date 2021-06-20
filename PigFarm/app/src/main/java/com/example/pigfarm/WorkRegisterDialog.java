@@ -3,7 +3,6 @@ package com.example.pigfarm;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Build;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -14,7 +13,8 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 
-import java.time.LocalDate;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class WorkRegisterDialog {
     private Context context;
@@ -30,7 +30,7 @@ public class WorkRegisterDialog {
 
         DbOpenHelper mDbOpenHelper = new DbOpenHelper(dialog.getContext());
         mDbOpenHelper.open();
-        mDbOpenHelper.create();
+        mDbOpenHelper.update();
 
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.work_register_dialog_fragment);
@@ -48,20 +48,20 @@ public class WorkRegisterDialog {
             @Override
             public void onClick(View view)
             {
-                int months = LocalDate.now().getMonthValue();
-                int day = LocalDate.now().getDayOfMonth();
-                Log.v("m", String.valueOf(months));
-                Log.v("d", String.valueOf(day));
-                EditText what_work = (EditText)view.findViewById(R.id.what_work);
-                EditText how_work = (EditText)view.findViewById(R.id.how_work);
-                EditText use_calorie = (EditText)view.findViewById(R.id.use_calorie);
+                long mNow = System.currentTimeMillis();
+                Date date = new Date(mNow);
+                SimpleDateFormat mFormat = new SimpleDateFormat("MM");
+                SimpleDateFormat dFormat = new SimpleDateFormat("dd");
+                EditText what_work = (EditText)dialog.findViewById(R.id.what_work);
+                EditText how_work = (EditText)dialog.findViewById(R.id.how_work);
+                EditText use_calorie = (EditText)dialog.findViewById(R.id.use_calorie);
 
 
-                /*mDbOpenHelper.insertColumn(what_work.getText().toString().trim(),
+                mDbOpenHelper.insertColumn(what_work.getText().toString().trim(),
                         how_work.getText().toString().trim(),
                         use_calorie.getText().toString().trim(),
-                        "month",
-                        "day");*/
+                        mFormat.format(date.getTime()),
+                        dFormat.format(date.getTime()));
             }
         });
 
@@ -73,6 +73,5 @@ public class WorkRegisterDialog {
                 Toast.makeText(context, "종료를 취소했습니다", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 }

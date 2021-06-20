@@ -32,7 +32,7 @@ import java.util.Date;
 
 import static android.app.Activity.RESULT_OK;
 
-public class HomeFragment extends Fragment {
+public class RegisterFragment extends Fragment {
 
     @Nullable
     @Override

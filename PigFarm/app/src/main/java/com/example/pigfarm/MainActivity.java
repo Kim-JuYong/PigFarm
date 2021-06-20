@@ -7,17 +7,13 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Dialog;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -32,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private FragmentManager manager = getSupportFragmentManager();
     private FragmentTransaction transaction;
 
-    private HomeFragment homeFragment = new HomeFragment();
+    private RegisterFragment homeFragment = new RegisterFragment();
     private CalendarFragment analyzeFragment = new CalendarFragment();
     private RecommendFragment recommendFragment = new RecommendFragment();
     private MypageFragment mypageFragment = new MypageFragment();
@@ -44,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, homeFragment).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, mypageFragment).commitAllowingStateLoss();
         //바텀 네비게이션뷰 안의 아이템들 설정
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -52,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 FragmentTransaction transaction = manager.beginTransaction();
                 switch (item.getItemId()) {
                     case R.id.home: {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, homeFragment).commitAllowingStateLoss();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, mypageFragment).commitAllowingStateLoss();
                         break;
                     }
                     case R.id.analyze: {
@@ -64,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     }
                     case R.id.mypage: {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, mypageFragment).commitAllowingStateLoss();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, homeFragment).commitAllowingStateLoss();
                         break;
                     }
                 }

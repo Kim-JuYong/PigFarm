@@ -13,20 +13,29 @@ import threading
 import json
 import select
 
+'''
+etc..
+'''
+from time import sleep
+
 # db초기화가 여러번 되면 문제가 생겨 한번만 객체 생성해서 사용함
 db = DB()
 
 def recvFile(client_socket, filename):
-    client_socket.settimeout(0.5)
+    client_socket.settimeout(0.1)
     with open(filename, 'wb') as f:
         try:
             data = client_socket.recv(4096)
+            print("recv data: ", len(data))
             while data:
                 f.write(data)
+                sleep(0.01)
                 data = client_socket.recv(4096)
+                print("recv data: ", len(data))
         except Exception as ex:
             print(ex)
     f.close()
+    print("file closed")
 
 def makeSendData(foods):
     global db
@@ -45,18 +54,21 @@ def run(client_socket, addr):
     recvFile(client_socket, filename)
     print("file recevied")
     
+    print("preditc image")
     foods = fmodel.predict_image(filename)
     data = makeSendData(foods)
-    print("send: ", data)
     client_socket.sendall(json.dumps(data).encode('utf-8'))
+    print("send: ", data)
+    
     result = client_socket.recv(1024)
-    if(result != '1'):
-        food = result.decode('utf-8')
+    result = result.decode('utf-8')
+    if(result != 'success'):
+        food = result
         calorie = fapi.getCalorie(food)
-        data = {}
-        data[food] = calorie
-        client_socket.sendall(json.dumps(data).encode('utf-8'))
+        client_socket.sendall(calorie.encode('utf-8'))
+    
     client_socket.close()
+    print("client close")
 
 
 

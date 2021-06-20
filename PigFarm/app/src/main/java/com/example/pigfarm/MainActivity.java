@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView; // 바텀네비게이션 뷰
     private FragmentManager manager = getSupportFragmentManager();
     private FragmentTransaction transaction;
-
     private HomeFragment homeFragment = new HomeFragment();
     private CalendarFragment analyzeFragment = new CalendarFragment();
     private RecommendFragment recommendFragment = new RecommendFragment();
@@ -89,57 +88,35 @@ public class MainActivity extends AppCompatActivity {
                 params.width = WindowManager.LayoutParams.MATCH_PARENT;
                 dialog.getWindow().setAttributes((android.view.WindowManager.LayoutParams) params);
                 dialog.show();
-                TextView textView1 = dialog.findViewById(R.id.select_name1);
-                TextView textView2 = dialog.findViewById(R.id.select_name2);
-                TextView textView3 = dialog.findViewById(R.id.select_name3);
-                TextView textView4 = dialog.findViewById(R.id.select_name4);
-                TextView textView5 = dialog.findViewById(R.id.select_name5);
-                //EditText textView6 = dialog.findViewById(R.id.select_name6);
                 for(int i = result.size(); i < 5; i++){
                     result.add("");
                 }
-                textView1.setText(result.get(0));
-                textView2.setText(result.get(1));
-                textView3.setText(result.get(2));
-                textView4.setText(result.get(3));
-                textView5.setText(result.get(4));
-                /*final Button select_box1 = (Button) dialog.findViewById(R.id.select_box1);
-                final Button select_box2 = (Button) dialog.findViewById(R.id.select_box2);
-                final Button select_box3 = (Button) dialog.findViewById(R.id.select_box3);
-                final Button select_box4 = (Button) dialog.findViewById(R.id.select_box4);
-                final Button select_box5 = (Button) dialog.findViewById(R.id.select_box5);
-                final Button select_box6 = (Button) dialog.findViewById(R.id.select_box6);*/
-                final RadioGroup radioGroup = (RadioGroup)findViewById(R.id.select_group);
+                final RadioButton select_box1 = (RadioButton) dialog.findViewById(R.id.select_box1);
+                final RadioButton select_box2 = (RadioButton) dialog.findViewById(R.id.select_box2);
+                final RadioButton select_box3 = (RadioButton) dialog.findViewById(R.id.select_box3);
+                final RadioButton select_box4 = (RadioButton) dialog.findViewById(R.id.select_box4);
+                final RadioButton select_box5 = (RadioButton) dialog.findViewById(R.id.select_box5);
+                select_box1.setText(result.get(0));
+                select_box2.setText(result.get(1));
+                select_box3.setText(result.get(2));
+                select_box4.setText(result.get(3));
+                select_box5.setText(result.get(4));
+                final RadioGroup radioGroup = (RadioGroup)dialog.findViewById(R.id.select_group);
                 final Button select_button = (Button) dialog.findViewById(R.id.select_register);
                 final Button cancel_button = (Button) dialog.findViewById(R.id.select_cancel);
                 select_button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         int id = radioGroup.getCheckedRadioButtonId();
-                        RadioButton rb = (RadioButton) findViewById(id);
-
-                        System.out.println(id);
-                        /*if(id == 0){
-                            final_food_name = textView1.toString();
-                        }
-                        if(id == 1){
-                            //final_food_name = textView2.toString();
-                            System.out.println(final_food_name);
-                        }
-                        if(id == 3){
-                            final_food_name = textView3.toString();
-                        }
-                        if(id == 4){
-                            final_food_name = textView4.toString();
-                        }
-                        if(id == 5){
-                            final_food_name = textView5.toString();
-                        }
-                        if(id == 6){
-                            //final_food_name = textView6.getText().toString();
-                        }*/
+                        //SQLite save code
                     }
                 });
+                /*cancel_button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                });*/
         }
     }
 

@@ -1,4 +1,4 @@
-/*package com.example.pigfarm;
+package com.example.pigfarm;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -216,4 +216,4 @@ public class MypageFragment extends Fragment {
         ct_output.setData(data);
     }
 
-}*/
+}

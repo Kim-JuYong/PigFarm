@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,12 +16,15 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class CalendarFragment extends Fragment {
     RecyclerView recyclerView;
     CalendarView calendarView;
+    TextView textView;
     Button delete_all_btn;
     ArrayList<ItemClass> list = new ArrayList<>();
     ArrayList<Item2Class> dbList = new ArrayList<>();
@@ -34,7 +38,7 @@ public class CalendarFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup)inflater.inflate(R.layout.calendar_fragment, container, false);
-
+        textView = rootView.findViewById(R.id.total_calorie);
         RecyclerView recyclerView = rootView.findViewById(R.id.calendar_recycler_view);
         delete_all_btn = rootView.findViewById(R.id.delete_all_button);
 
@@ -45,6 +49,7 @@ public class CalendarFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(adapter);
         dbList = mDbOpenHelper.getAllItem();
+        adapter.notifyDataSetChanged();
         return rootView;
     }
     @Override
@@ -56,6 +61,7 @@ public class CalendarFragment extends Fragment {
                 mDbOpenHelper.deleteAllColumns();
                 //mDbOpenHelper2.deleteAllColumns();
                 list.clear();
+                textView.setText("0");
                 adapter.notifyDataSetChanged();
             }
 
@@ -82,7 +88,11 @@ public class CalendarFragment extends Fragment {
                         System.out.println("dd");
                     }
                 }
-
+                double total = 0;
+                for(int i = 0; i < list.size(); i++){
+                    total += Double.parseDouble(list.get(i).how_many);
+                }
+                textView.setText(Double.toString(total));
                 adapter.notifyDataSetChanged();
             }
         });

@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -145,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
                         System.out.println(getDate);
                         System.out.println(getTime);
                         mDbOpenHelper.insertColumn(getName, result.get(getName), getDate, getTime);
+                        Toast.makeText(getApplicationContext(), "성공!", Toast.LENGTH_SHORT).show();
                         dialog.cancel();
                     }
                 });
@@ -162,6 +164,7 @@ public class MainActivity extends AppCompatActivity {
                         final Button re_cancel_button = (Button) re_dialog.findViewById(R.id.re_select_cancel);
                         re_cancel_button.setOnClickListener(new View.OnClickListener() {
                             @Override
+
                             public void onClick(View v) {
                                 re_dialog.cancel();
                             }
@@ -192,6 +195,7 @@ public class MainActivity extends AppCompatActivity {
                                     final_dialog.show();
                                     Button final_select = (Button)final_dialog.findViewById(R.id.final_select_register);
                                     Button final_cancel = (Button)final_dialog.findViewById(R.id.final_select_cancel);
+                                    Toast.makeText(getApplicationContext(), "데이터가 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
                                     final_select.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
@@ -209,6 +213,7 @@ public class MainActivity extends AppCompatActivity {
                                             String getTime = simpleTime.format(date);
                                             mDbOpenHelper.insertColumn(final_input_name, final_input_calorie, getDate, getTime);
                                             System.out.println(calorie);
+                                            Toast.makeText(getApplicationContext(), "성공!", Toast.LENGTH_SHORT).show();
                                             final_dialog.cancel();
                                         }
                                     });
@@ -228,6 +233,7 @@ public class MainActivity extends AppCompatActivity {
                                     String getDate = simpleDate.format(date);
                                     String getTime = simpleTime.format(date);
                                     mDbOpenHelper.insertColumn(re_input, calorie, getDate, getTime);
+                                    Toast.makeText(getApplicationContext(), "성공!", Toast.LENGTH_SHORT).show();
                                     System.out.println(calorie);
                                 }
                             }

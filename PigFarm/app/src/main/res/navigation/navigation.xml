@@ -8,7 +8,7 @@
         android:name="com.example.pigfarm.CalendarFragment"/>
     <fragment
         android:id="@+id/home"
-        android:name="com.example.pigfarm.HomeFragment"/>
+        android:name="com.example.pigfarm.RegisterFragment"/>
     <fragment
         android:id="@+id/recommend"
         android:name="com.example.pigfarm.RecommendFragment"/>
@@ -19,5 +19,6 @@
         android:id="@+id/photoActivity"
         android:name="com.example.pigfarm.PhotoActivity"
         android:label="PhotoActivity" />
+
 
 </navigation>

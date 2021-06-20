@@ -15,7 +15,7 @@ class DB:
         self.d.child(food).update({'calorie':calorie})
 
     def getFoodCal(self, food:str) -> int:
-        return int(self.d.child(food).get()['calorie'])
+        return self.d.child(food).get()['calorie']
 
 
 if __name__ == '__main__':

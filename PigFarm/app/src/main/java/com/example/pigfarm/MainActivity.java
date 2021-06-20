@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -34,58 +35,46 @@ public class MainActivity extends AppCompatActivity {
     private CalendarFragment analyzeFragment = new CalendarFragment();
     private RecommendFragment recommendFragment = new RecommendFragment();
     private MypageFragment mypageFragment = new MypageFragment();
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        bottomNavigationView = findViewById(R.id.bottom_navigation);
-
-        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, mypageFragment).commitAllowingStateLoss();
-
     NutritionDBOpenHelper mDbOpenHelper = new NutritionDBOpenHelper(this);
-    String re_input = "";
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
-        mDbOpenHelper.open();
+        @Override
+        protected void onCreate (Bundle savedInstanceState){
+            super.onCreate(savedInstanceState);
 
-        bottomNavigationView = findViewById(R.id.bottom_navigation);
+            setContentView(R.layout.activity_main);
+            mDbOpenHelper.open();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, recommendFragment).commitAllowingStateLoss();
-        //바텀 네비게이션뷰 안의 아이템들 설정
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                transaction = manager.beginTransaction();
-                switch (item.getItemId()) {
-                    case R.id.home: {
+            bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-                        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, mypageFragment).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, recommendFragment).commitAllowingStateLoss();
+            //바텀 네비게이션뷰 안의 아이템들 설정
+            bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    transaction = manager.beginTransaction();
+                    switch (item.getItemId()) {
+                        case R.id.home: {
+                            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, recommendFragment).commitAllowingStateLoss();
 
-                        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, recommendFragment).commitAllowingStateLoss();
-
-                        break;
+                            break;
+                        }
+                        case R.id.analyze: {
+                            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, analyzeFragment).commitAllowingStateLoss();
+                            break;
+                        }
+                        case R.id.recommend: {
+                            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, mypageFragment).commitAllowingStateLoss();
+                            break;
+                        }
+                        case R.id.mypage: {
+                            getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, homeFragment).commitAllowingStateLoss();
+                            break;
+                        }
                     }
-                    case R.id.analyze: {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, analyzeFragment).commitAllowingStateLoss();
-                        break;
-                    }
-                    case R.id.recommend: {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, mypageFragment).commitAllowingStateLoss();
-                        break;
-                    }
-                    case R.id.mypage: {
-                        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, homeFragment).commitAllowingStateLoss();
-                        break;
-                    }
+                    return true;
                 }
-                return true;
-            }
-        });
-    }
+            });
+        }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
@@ -184,7 +173,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onClick(View v) {
                                 EditText editText = (EditText)re_dialog.findViewById(R.id.re_food_name);
                                 String calorie;
-                                re_input = editText.getText().toString();
+                                String re_input = editText.getText().toString();
                                 SendStringGetCalorie getCalByStr = new SendStringGetCalorie(re_input);
                                 getCalByStr.start();
                                 try {

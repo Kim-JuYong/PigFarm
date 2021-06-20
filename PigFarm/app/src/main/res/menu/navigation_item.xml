@@ -7,13 +7,13 @@
     <item
         android:id="@+id/analyze"
         android:icon="@drawable/basic_icon"
-        android:title="분석" />
+        android:title="달력" />
     <item
         android:id="@+id/recommend"
         android:icon="@drawable/basic_icon"
-        android:title="추천" />
+        android:title="기록" />
     <item
         android:id="@+id/mypage"
         android:icon="@drawable/basic_icon"
-        android:title="내 정보" />
+        android:title="등록" />
 </menu>

@@ -225,6 +225,7 @@ public class MypageFragment extends Fragment {
         ct_output.setData(data);
     }
 
+
     private void getDataFromDatabase() {
         String myPath = "/data/data/com.example.pigfarm/databases/" + "InnerDatabase(SQLite).db";
         SQLiteDatabase database = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);

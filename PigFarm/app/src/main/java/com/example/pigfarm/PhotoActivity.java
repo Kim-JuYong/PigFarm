@@ -25,7 +25,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class PhotoActivity extends AppCompatActivity {
-    File photofile;
     final private static String TAG = "pigfarm";
     final static int TAKE_PICTURE = 1;
     String mCurrentPhotoPath;
@@ -93,10 +92,11 @@ public class PhotoActivity extends AppCompatActivity {
                     if (resultCode == RESULT_OK) {
                         Log.v("d", "ok");
                         File file = new File(mCurrentPhotoPath);
-                        photofile = file;
                         Bitmap bitmap;
-                        SendClient sendClient = new SendClient();
-                        sendClient.start();
+                        Intent data = new Intent();
+                        data.putExtra("result", file);
+                        setResult(0, data);
+                        finish();
                     }
                 }
             }
@@ -105,22 +105,5 @@ public class PhotoActivity extends AppCompatActivity {
             error.printStackTrace();
         }
     }
-    private class SendClient extends Thread{
-        public void run(){
-            ServerClientSend client = new ServerClientSend();
-            food_name_list = client.clientTest(photofile);
-
-            System.out.println("complete");
-            for(String a : food_name_list){
-                System.out.println(a);
-            }
-            Intent data = new Intent();
-            data.putExtra("result", food_name_list);
-            setResult(0, data);
-            finish();
-        }
-    }
-
-
 }
 

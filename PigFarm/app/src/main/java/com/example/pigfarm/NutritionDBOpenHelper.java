@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class NutritionDBOpenHelper {
 
@@ -27,7 +28,8 @@ public class NutritionDBOpenHelper {
 
         @Override
         public void onCreate(SQLiteDatabase db){
-            db.execSQL(NutritionDataBase.CreateNutritionDB._CREATE1);
+            String sql = "create table Nutrition (food_name text, food_calorie text, months text, day text)";
+            db.execSQL(sql);
         }
 
         @Override
@@ -56,17 +58,33 @@ public class NutritionDBOpenHelper {
     }
     public long insertColumn(String food_name, String food_calorie, String work_month, String work_day){
         ContentValues values = new ContentValues();
-        values.put(NutritionDataBase.CreateNutritionDB.food_name, food_name);
-        values.put(NutritionDataBase.CreateNutritionDB.food_name, food_calorie);
-        values.put(NutritionDataBase.CreateNutritionDB.months, work_month);
-        values.put(NutritionDataBase.CreateNutritionDB.day, work_day);
-        return mDB.insert(NutritionDataBase.CreateNutritionDB._TABLENAME1, null, values);
+        values.put("food_name", food_name);
+        values.put("food_calorie", food_calorie);
+        values.put("months", work_month);
+        values.put("day", work_day);
+        return mDB.insert("Nutrition", null, values);
     }
     public Cursor selectColumns(){
-        return mDB.query(NutritionDataBase.CreateNutritionDB._TABLENAME1, null, null, null, null, null, null);
+        return mDB.query("Nutrition", null, null, null, null, null, null);
 
     }
-    public void deleteAllColumns() {
-        mDB.delete(NutritionDataBase.CreateNutritionDB._TABLENAME1, null, null);
+    public ArrayList<Item2Class> getAllItem() {
+        ArrayList<Item2Class> ItemData = new ArrayList<Item2Class>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + "Nutrition";
+
+
+        Cursor cursor = mDB.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst() && cursor.getCount() > 0) {
+            do {
+                Item2Class contact = new Item2Class(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3));
+                ItemData.add(contact);
+
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return ItemData; // return contact list
     }
 }

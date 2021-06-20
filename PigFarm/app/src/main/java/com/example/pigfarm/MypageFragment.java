@@ -281,28 +281,28 @@ public class MypageFragment extends Fragment {
         if (cursorEat != null) {
             if (cursorEat.moveToFirst()) {
                 do {
-                    int checkMonth = Integer.parseInt(cursorEat.getString(3));
-                    int checkDay = Integer.parseInt(cursorEat.getString(4));
+                    int checkMonth = Integer.parseInt(cursorEat.getString(2));
+                    int checkDay = Integer.parseInt(cursorEat.getString(3));
                     if (checkMonth == pairList.get(2).getNowMonth()) {
                         if (pairList.get(0).getNowDay() >= checkDay) {
-                            weekEat[0] += Integer.parseInt(cursorEat.getString(2));
+                            weekEat[0] += Integer.parseInt(cursorEat.getString(1));
                         }
                         else if (pairList.get(1).getNowDay() >= checkDay) {
-                            weekEat[1] += Integer.parseInt(cursorEat.getString(2));
+                            weekEat[1] += Integer.parseInt(cursorEat.getString(1));
                         }
                         else if (pairList.get(2).getNowDay() >= checkDay) {
-                            weekEat[2] += Integer.parseInt(cursorEat.getString(2));
+                            weekEat[2] += Integer.parseInt(cursorEat.getString(1));
                         }
                         else if (pairList.get(3).getNowDay() >= checkDay) {
-                            weekEat[3] += Integer.parseInt(cursorEat.getString(2));
+                            weekEat[3] += Integer.parseInt(cursorEat.getString(1));
                         }
                         else if (pairList.get(4).getPreDay() <= checkDay) {
                             if (pairList.get(4).getNowMonth() > checkMonth) {
-                                weekEat[4] += Integer.parseInt(cursorEat.getString(2));
+                                weekEat[4] += Integer.parseInt(cursorEat.getString(1));
                             }
                             else {
                                 if (pairList.get(4).getNowDay() >= checkDay) {
-                                    weekEat[4] += Integer.parseInt(cursorEat.getString(2));
+                                    weekEat[4] += Integer.parseInt(cursorEat.getString(1));
                                 }
                             }
                         }
@@ -310,13 +310,13 @@ public class MypageFragment extends Fragment {
                     else if (checkMonth == pairList.get(2).getNowMonth()-1) {
                         if (pairList.get(0).getPreMonth() == checkMonth) {
                             if (pairList.get(0).getPreDay() <=  checkDay)
-                                weekEat[0] += Integer.parseInt(cursorEat.getString(2));
+                                weekEat[0] += Integer.parseInt(cursorEat.getString(1));
                         }
                     }
                     else if (checkMonth == pairList.get(2).getNowMonth()+1) {
                         if (pairList.get(4).getNowMonth() == checkMonth) {
                             if (pairList.get(4).getNowDay() >= checkDay)
-                                weekEat[4] += Integer.parseInt(cursorEat.getString(2));
+                                weekEat[4] += Integer.parseInt(cursorEat.getString(1));
                         }
                     }
                 } while (cursorEat.moveToNext());

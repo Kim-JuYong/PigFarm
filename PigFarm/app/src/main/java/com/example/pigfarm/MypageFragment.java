@@ -71,8 +71,8 @@ public class MypageFragment extends Fragment {
     private LineChart ct_input;
     private LineChart ct_output;
     List<Pair> pairList = new LinkedList<>();
-    private int weekHealth[] = new int[5];
-    private int weekEat[] = new int[5];
+    private double weekHealth[] = new double[5];
+    private double weekEat[] = new double[5];
 
     @Nullable
     @Override
@@ -147,7 +147,7 @@ public class MypageFragment extends Fragment {
 
         for (int i = 0; i < 5; i++) {
             String val_str[] = tv_inputArray[i].getText().toString().split(" ");
-            int val = Integer.parseInt(val_str[0]);
+            float val = Float.parseFloat(val_str[0]);
             values.add(new Entry(val, i));
         }
 
@@ -190,7 +190,7 @@ public class MypageFragment extends Fragment {
 
         for (int i = 0; i < 5; i++) {
             String val_str[] = tv_outputArray[i].getText().toString().split(" ");
-            int val = Integer.parseInt(val_str[0]);
+            float val = Float.parseFloat(val_str[0]);
             values.add(new Entry(val, i));
         }
 
@@ -240,24 +240,24 @@ public class MypageFragment extends Fragment {
                     int checkDay = Integer.parseInt(cursorHealth.getString(5));
                     if (checkMonth == pairList.get(2).getNowMonth()) {
                         if (pairList.get(0).getNowDay() >= checkDay) {
-                            weekHealth[0] += Integer.parseInt(cursorHealth.getString(3));
+                            weekHealth[0] += Double.parseDouble(cursorHealth.getString(3));
                         }
                         else if (pairList.get(1).getNowDay() >= checkDay) {
-                            weekHealth[1] += Integer.parseInt(cursorHealth.getString(3));
+                            weekHealth[1] += Double.parseDouble(cursorHealth.getString(3));
                         }
                         else if (pairList.get(2).getNowDay() >= checkDay) {
-                            weekHealth[2] += Integer.parseInt(cursorHealth.getString(3));
+                            weekHealth[2] += Double.parseDouble(cursorHealth.getString(3));
                         }
                         else if (pairList.get(3).getNowDay() >= checkDay) {
-                            weekHealth[3] += Integer.parseInt(cursorHealth.getString(3));
+                            weekHealth[3] += Double.parseDouble(cursorHealth.getString(3));
                         }
                         else if (pairList.get(4).getPreDay() <= checkDay) {
                             if (pairList.get(4).getNowMonth() > checkMonth) {
-                                weekHealth[4] += Integer.parseInt(cursorHealth.getString(3));
+                                weekHealth[4] += Double.parseDouble(cursorHealth.getString(3));
                             }
                             else {
                                 if (pairList.get(4).getNowDay() >= checkDay) {
-                                    weekHealth[4] += Integer.parseInt(cursorHealth.getString(3));
+                                    weekHealth[4] += Double.parseDouble(cursorHealth.getString(3));
                                 }
                             }
                         }
@@ -265,13 +265,13 @@ public class MypageFragment extends Fragment {
                     else if (checkMonth == pairList.get(2).getNowMonth()-1) {
                         if (pairList.get(0).getPreMonth() == checkMonth) {
                             if (pairList.get(0).getPreDay() <=  checkDay)
-                                weekHealth[0] += Integer.parseInt(cursorHealth.getString(3));
+                                weekHealth[0] += Double.parseDouble(cursorHealth.getString(3));
                         }
                     }
                     else if (checkMonth == pairList.get(2).getNowMonth()+1) {
                         if (pairList.get(4).getNowMonth() == checkMonth) {
                             if (pairList.get(4).getNowDay() >= checkDay)
-                                weekHealth[4] += Integer.parseInt(cursorHealth.getString(3));
+                                weekHealth[4] += Double.parseDouble(cursorHealth.getString(3));
                         }
                     }
                 } while (cursorHealth.moveToNext());
@@ -285,24 +285,24 @@ public class MypageFragment extends Fragment {
                     int checkDay = Integer.parseInt(cursorEat.getString(3));
                     if (checkMonth == pairList.get(2).getNowMonth()) {
                         if (pairList.get(0).getNowDay() >= checkDay) {
-                            weekEat[0] += Integer.parseInt(cursorEat.getString(1));
+                            weekEat[0] += Double.parseDouble(cursorEat.getString(1));
                         }
                         else if (pairList.get(1).getNowDay() >= checkDay) {
-                            weekEat[1] += Integer.parseInt(cursorEat.getString(1));
+                            weekEat[1] += Double.parseDouble(cursorEat.getString(1));
                         }
                         else if (pairList.get(2).getNowDay() >= checkDay) {
-                            weekEat[2] += Integer.parseInt(cursorEat.getString(1));
+                            weekEat[2] += Double.parseDouble(cursorEat.getString(1));
                         }
                         else if (pairList.get(3).getNowDay() >= checkDay) {
-                            weekEat[3] += Integer.parseInt(cursorEat.getString(1));
+                            weekEat[3] += Double.parseDouble(cursorEat.getString(1));
                         }
                         else if (pairList.get(4).getPreDay() <= checkDay) {
                             if (pairList.get(4).getNowMonth() > checkMonth) {
-                                weekEat[4] += Integer.parseInt(cursorEat.getString(1));
+                                weekEat[4] += Double.parseDouble(cursorEat.getString(1));
                             }
                             else {
                                 if (pairList.get(4).getNowDay() >= checkDay) {
-                                    weekEat[4] += Integer.parseInt(cursorEat.getString(1));
+                                    weekEat[4] += Double.parseDouble(cursorEat.getString(1));
                                 }
                             }
                         }
@@ -310,13 +310,13 @@ public class MypageFragment extends Fragment {
                     else if (checkMonth == pairList.get(2).getNowMonth()-1) {
                         if (pairList.get(0).getPreMonth() == checkMonth) {
                             if (pairList.get(0).getPreDay() <=  checkDay)
-                                weekEat[0] += Integer.parseInt(cursorEat.getString(1));
+                                weekEat[0] += Double.parseDouble(cursorEat.getString(1));
                         }
                     }
                     else if (checkMonth == pairList.get(2).getNowMonth()+1) {
                         if (pairList.get(4).getNowMonth() == checkMonth) {
                             if (pairList.get(4).getNowDay() >= checkDay)
-                                weekEat[4] += Integer.parseInt(cursorEat.getString(1));
+                                weekEat[4] += Double.parseDouble(cursorEat.getString(1));
                         }
                     }
                 } while (cursorEat.moveToNext());
@@ -327,8 +327,8 @@ public class MypageFragment extends Fragment {
 
     private void tableSetData() {
         for(int i = 0; i < 5; i++) {
-            tv_inputArray[i].setText(weekEat[i] + " kcal");
-            tv_outputArray[i].setText(weekHealth[i] + " kcal");
+            tv_inputArray[i].setText(String.format("%.2f", weekEat[i]) + " kcal");
+            tv_outputArray[i].setText(String.format("%.2f", weekHealth[i]) + " kcal");
         }
     }
 

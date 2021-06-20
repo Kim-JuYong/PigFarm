@@ -30,7 +30,6 @@ public class WorkRegisterDialog {
 
         DbOpenHelper mDbOpenHelper = new DbOpenHelper(dialog.getContext());
         mDbOpenHelper.open();
-        mDbOpenHelper.update();
 
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.work_register_dialog_fragment);

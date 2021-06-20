@@ -72,6 +72,7 @@ public class MypageFragment extends Fragment {
     private LineChart ct_output;
     List<Pair> pairList = new LinkedList<>();
     private int weekHealth[] = new int[5];
+    private int weekEat[] = new int[5];
 
     @Nullable
     @Override
@@ -95,6 +96,7 @@ public class MypageFragment extends Fragment {
             tv_weekArray[index] = (TextView)v.findViewById(tv_weekId[i]);
             tv_weekArray[index].setText(sunday + " - " + saturday);
             weekHealth[index] = 0;
+            weekEat[index] = 0;
         }
 
         drawGraph();
@@ -229,32 +231,33 @@ public class MypageFragment extends Fragment {
     private void getDataFromDatabase() {
         String myPath = "/data/data/com.example.pigfarm/databases/" + "InnerDatabase(SQLite).db";
         SQLiteDatabase database = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
-        Cursor cursor = database.rawQuery("SELECT * FROM work_table", null);
-        if (cursor != null) {
-            if (cursor.moveToFirst()) {
+        Cursor cursorHealth = database.rawQuery("SELECT * FROM work_table", null);
+        Cursor cursorEat = database.rawQuery("SELECT * FROM Nutrition", null);
+        if (cursorHealth != null) {
+            if (cursorHealth.moveToFirst()) {
                 do {
-                    int checkMonth = Integer.parseInt(cursor.getString(4));
-                    int checkDay = Integer.parseInt(cursor.getString(5));
+                    int checkMonth = Integer.parseInt(cursorHealth.getString(4));
+                    int checkDay = Integer.parseInt(cursorHealth.getString(5));
                     if (checkMonth == pairList.get(2).getNowMonth()) {
                         if (pairList.get(0).getNowDay() >= checkDay) {
-                            weekHealth[0] += Integer.parseInt(cursor.getString(3));
+                            weekHealth[0] += Integer.parseInt(cursorHealth.getString(3));
                         }
                         else if (pairList.get(1).getNowDay() >= checkDay) {
-                            weekHealth[1] += Integer.parseInt(cursor.getString(3));
+                            weekHealth[1] += Integer.parseInt(cursorHealth.getString(3));
                         }
                         else if (pairList.get(2).getNowDay() >= checkDay) {
-                            weekHealth[2] += Integer.parseInt(cursor.getString(3));
+                            weekHealth[2] += Integer.parseInt(cursorHealth.getString(3));
                         }
                         else if (pairList.get(3).getNowDay() >= checkDay) {
-                            weekHealth[3] += Integer.parseInt(cursor.getString(3));
+                            weekHealth[3] += Integer.parseInt(cursorHealth.getString(3));
                         }
                         else if (pairList.get(4).getPreDay() <= checkDay) {
                             if (pairList.get(4).getNowMonth() > checkMonth) {
-                                weekHealth[4] += Integer.parseInt(cursor.getString(3));
+                                weekHealth[4] += Integer.parseInt(cursorHealth.getString(3));
                             }
                             else {
                                 if (pairList.get(4).getNowDay() >= checkDay) {
-                                    weekHealth[4] += Integer.parseInt(cursor.getString(3));
+                                    weekHealth[4] += Integer.parseInt(cursorHealth.getString(3));
                                 }
                             }
                         }
@@ -262,23 +265,69 @@ public class MypageFragment extends Fragment {
                     else if (checkMonth == pairList.get(2).getNowMonth()-1) {
                         if (pairList.get(0).getPreMonth() == checkMonth) {
                             if (pairList.get(0).getPreDay() <=  checkDay)
-                                weekHealth[0] += Integer.parseInt(cursor.getString(3));
+                                weekHealth[0] += Integer.parseInt(cursorHealth.getString(3));
                         }
                     }
                     else if (checkMonth == pairList.get(2).getNowMonth()+1) {
                         if (pairList.get(4).getNowMonth() == checkMonth) {
                             if (pairList.get(4).getNowDay() >= checkDay)
-                                weekHealth[4] += Integer.parseInt(cursor.getString(3));
+                                weekHealth[4] += Integer.parseInt(cursorHealth.getString(3));
                         }
                     }
-                } while (cursor.moveToNext());
+                } while (cursorHealth.moveToNext());
             }
-            cursor.close();
+            cursorHealth.close();
+        }
+        if (cursorEat != null) {
+            if (cursorEat.moveToFirst()) {
+                do {
+                    int checkMonth = Integer.parseInt(cursorEat.getString(3));
+                    int checkDay = Integer.parseInt(cursorEat.getString(4));
+                    if (checkMonth == pairList.get(2).getNowMonth()) {
+                        if (pairList.get(0).getNowDay() >= checkDay) {
+                            weekEat[0] += Integer.parseInt(cursorEat.getString(2));
+                        }
+                        else if (pairList.get(1).getNowDay() >= checkDay) {
+                            weekEat[1] += Integer.parseInt(cursorEat.getString(2));
+                        }
+                        else if (pairList.get(2).getNowDay() >= checkDay) {
+                            weekEat[2] += Integer.parseInt(cursorEat.getString(2));
+                        }
+                        else if (pairList.get(3).getNowDay() >= checkDay) {
+                            weekEat[3] += Integer.parseInt(cursorEat.getString(2));
+                        }
+                        else if (pairList.get(4).getPreDay() <= checkDay) {
+                            if (pairList.get(4).getNowMonth() > checkMonth) {
+                                weekEat[4] += Integer.parseInt(cursorEat.getString(2));
+                            }
+                            else {
+                                if (pairList.get(4).getNowDay() >= checkDay) {
+                                    weekEat[4] += Integer.parseInt(cursorEat.getString(2));
+                                }
+                            }
+                        }
+                    }
+                    else if (checkMonth == pairList.get(2).getNowMonth()-1) {
+                        if (pairList.get(0).getPreMonth() == checkMonth) {
+                            if (pairList.get(0).getPreDay() <=  checkDay)
+                                weekEat[0] += Integer.parseInt(cursorEat.getString(2));
+                        }
+                    }
+                    else if (checkMonth == pairList.get(2).getNowMonth()+1) {
+                        if (pairList.get(4).getNowMonth() == checkMonth) {
+                            if (pairList.get(4).getNowDay() >= checkDay)
+                                weekEat[4] += Integer.parseInt(cursorEat.getString(2));
+                        }
+                    }
+                } while (cursorEat.moveToNext());
+            }
+            cursorEat.close();
         }
     }
 
     private void tableSetData() {
         for(int i = 0; i < 5; i++) {
+            tv_inputArray[i].setText(weekEat[i] + " kcal");
             tv_outputArray[i].setText(weekHealth[i] + " kcal");
         }
     }

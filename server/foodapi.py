@@ -27,7 +27,7 @@ class FoodApi:
         data = urlopen(self.url+parameter).read()
         data = json.loads(data)
         if(data[self.serviceid]['total_count'] == '0'):
-            return -1
+            return 0
         for food in data[self.serviceid]['row']:
             if(food['DESC_KOR'] == foodname):
                 return food['NUTR_CONT1']

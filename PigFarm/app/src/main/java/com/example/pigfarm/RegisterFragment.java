@@ -24,20 +24,30 @@ import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import static android.app.Activity.RESULT_OK;
 
-public class HomeFragment extends Fragment {
+public class RegisterFragment extends Fragment {
+    RecyclerView recyclerView;
+    ArrayList<Item2Class> dbList = new ArrayList<>();
+    ArrayList<ItemClass> list = new ArrayList<>();
+    NutritionDBOpenHelper mDbOpenHelper = new NutritionDBOpenHelper(getContext());
+    CalendarRecyclerAdapter adapter;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.home_fragment, container, false);
+        recyclerView = v.findViewById(R.id.home_recycler);
+
         return v;
 
     }
@@ -45,7 +55,32 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        dbList = mDbOpenHelper.getAllItem();
+        adapter = new CalendarRecyclerAdapter(getActivity(), list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(adapter);
+        long now = System.currentTimeMillis();
+        Date date = new Date(now);
+        SimpleDateFormat simpleDate = new SimpleDateFormat("MM");
+        SimpleDateFormat simpleTime = new SimpleDateFormat("dd");
+        String getDate = simpleDate.format(date);
+        String getTime = simpleTime.format(date);
+        if(Integer.parseInt(getDate) < 10){
+            getDate = "0" + Integer.parseInt(getDate);;
+        }
+        if(Integer.parseInt(getTime) < 10){
+            getTime = "0" + Integer.parseInt(getTime);
+        }
+        int s = dbList.size();
+        System.out.println(s);
+        list.clear();
+        for(int i = 0; i < s; i++) {
+            if (dbList.get(i).month.equals(getDate) && dbList.get(i).day.equals(getTime)) {
+                ItemClass item = new ItemClass(dbList.get(i).title, dbList.get(i).how_many);
+                list.add(item);
+            }
+        }
+        adapter.notifyDataSetChanged();
 
         view.findViewById(R.id.meal_photo_register_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,15 +97,7 @@ public class HomeFragment extends Fragment {
             }
         });
     }
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data){
-        super.onActivityResult(requestCode, resultCode, data);
 
-        switch (requestCode){
-            case 0:
-                System.out.println("fra");
-        }
-    }
 
 
 }

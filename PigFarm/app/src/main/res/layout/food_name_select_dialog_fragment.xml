@@ -4,10 +4,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
     <TextView
+        android:background="@color/teal_200"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="현재 먹고 있는 음식이 있나요? 없다면 직접 입력해주세요!"
-        android:textSize="30sp"/>
+        android:textSize="24sp"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,10 +30,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <RadioButton
+                android:text=""
                 android:id="@+id/select_box4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
             <RadioButton
+                android:text=""
                 android:id="@+id/select_box5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -56,16 +59,17 @@
             android:layout_height="60dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="직접 입"
+            android:text="직접 입력"
             android:textColor="#000000"
             android:textSize="16sp"
-            android:background="#ffffff"/>
+            android:backgroundTint="@color/teal_200"/>
 
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:background="#000000" />
         <Button
+            android:backgroundTint="@color/teal_200"
             android:id="@+id/select_register"
             android:layout_width="match_parent"
             android:layout_height="60dp"
@@ -73,8 +77,7 @@
             android:gravity="center"
             android:text="등록"
             android:textColor="#000000"
-            android:textSize="16sp"
-            android:background="#ffffff"/>
+            android:textSize="16sp" />
     </LinearLayout>
 
     <View

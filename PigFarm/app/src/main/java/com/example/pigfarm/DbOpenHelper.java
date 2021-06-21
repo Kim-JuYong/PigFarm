@@ -69,4 +69,22 @@ public class DbOpenHelper {
     public void deleteAllColumns() {
         mDB.delete(WorkDataBase.CreateWorkDB._TABLENAME0, null, null);
     }
+    public ArrayList<ItemClass> getAllItem() {
+        ArrayList<ItemClass> ItemData = new ArrayList<ItemClass>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + "work_table";
+
+        Cursor cursor = mDB.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst() && cursor.getCount() > 0) {
+            do {
+                ItemClass contact = new ItemClass(cursor.getString(1), cursor.getString(3));
+                ItemData.add(contact);
+
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return ItemData; // return contact list
+    }
 }

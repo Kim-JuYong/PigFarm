@@ -58,8 +58,8 @@ public class CalendarFragment extends Fragment {
         delete_all_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mDbOpenHelper.deleteAllColumns();
-                //mDbOpenHelper2.deleteAllColumns();
+                deleteFoodTableMonth();
+                deleteWorkTableMonth();
                 list.clear();
                 textView.setText("0");
                 adapter.notifyDataSetChanged();
@@ -98,5 +98,42 @@ public class CalendarFragment extends Fragment {
         });
 
     }
+    public void deleteWorkTableMonth() {
+        SimpleDateFormat monthFormat = new SimpleDateFormat("MM");
+        SimpleDateFormat dayFormat = new SimpleDateFormat("dd");
+        Date date = new Date();
+        String myPath = "/data/data/com.example.pigfarm/databases/" + "InnerDatabase(SQLite).db";
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READWRITE);
+        Cursor cursor = database.rawQuery("SELECT * FROM work_table", null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst() && cursor.getCount() > 0) {
+            do {
+                database.execSQL("DELETE FROM work_table WHERE work_month=" + monthFormat.format(date.getTime()));
+
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+
+    }
+    public void deleteFoodTableMonth() {
+        SimpleDateFormat monthFormat = new SimpleDateFormat("MM");
+        SimpleDateFormat dayFormat = new SimpleDateFormat("dd");
+        Date date = new Date();
+        String myPath = "/data/data/com.example.pigfarm/databases/" + "InnerDatabase(SQLite).db";
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READWRITE);
+        Cursor cursor = database.rawQuery("SELECT * FROM Nutrition", null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst() && cursor.getCount() > 0) {
+            do {
+                database.execSQL("DELETE FROM Nutrition WHERE months=" + monthFormat.format(date.getTime()));
+
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+
+    }
+
 
 }

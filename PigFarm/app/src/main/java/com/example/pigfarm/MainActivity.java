@@ -236,6 +236,7 @@ public class MainActivity extends AppCompatActivity {
                                     mDbOpenHelper.insertColumn(re_input, calorie, getDate, getTime);
                                     Toast.makeText(getApplicationContext(), "성공!", Toast.LENGTH_SHORT).show();
                                     System.out.println(calorie);
+                                    re_dialog.cancel();
                                 }
                             }
                         });

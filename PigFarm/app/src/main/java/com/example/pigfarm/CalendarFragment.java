@@ -92,7 +92,7 @@ public class CalendarFragment extends Fragment {
                 for(int i = 0; i < list.size(); i++){
                     total += Double.parseDouble(list.get(i).how_many);
                 }
-                textView.setText(Double.toString(total));
+                textView.setText(String.format("%.2f", total));;
                 adapter.notifyDataSetChanged();
             }
         });

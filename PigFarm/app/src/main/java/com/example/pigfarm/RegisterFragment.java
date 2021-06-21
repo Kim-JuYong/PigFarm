@@ -76,20 +76,15 @@ public class RegisterFragment extends Fragment {
         recyclerView2.setAdapter(adapter2);
 
         int s = dbList.size();
-        list.clear();
-        for(int i = 0; i < s; i++) {
-            ItemClass item = new ItemClass(dbList.get(i).title, dbList.get(i).how_many);
-            list.add(item);
-        }
-        adapter.notifyDataSetChanged();
+        list = findFoodTableToday();
+        list2 = findWorkTableToday();
+        adapter = new CalendarRecyclerAdapter(getActivity(), list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(adapter);
+        adapter2 = new CalendarRecyclerAdapter(getActivity(), list2);
+        recyclerView2.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView2.setAdapter(adapter2);
 
-        int s2 = dblist2.size();
-        list2.clear();
-        for(int i = 0; i < s2; i++) {
-            ItemClass item = new ItemClass(dblist2.get(i).title, dblist2.get(i).how_many);
-            list2.add(item);
-        }
-        adapter2.notifyDataSetChanged();
         double t1 = 0;
         for(int i = 0; i < list.size(); i++){
             t1 += Double.parseDouble(list.get(i).how_many);
@@ -99,10 +94,14 @@ public class RegisterFragment extends Fragment {
             t2 += Double.parseDouble(list2.get(i).how_many);
         }
 
+
         TextView v1 = view.findViewById(R.id.total_cal);
         TextView v2 = view.findViewById(R.id.total_work);
-        v1.setText(Double.toString(t1));
-        v2.setText(Double.toString(t2));
+        v1.setText(String.format("%.2f", t1));
+        v2.setText(String.format("%.2f", t2));
+
+        adapter.notifyDataSetChanged();
+        adapter2.notifyDataSetChanged();
         view.findViewById(R.id.meal_photo_register_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -163,8 +162,57 @@ public class RegisterFragment extends Fragment {
         String myPath = "/data/data/com.example.pigfarm/databases/" + "InnerDatabase(SQLite).db";
         SQLiteDatabase database = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READWRITE);
         database.execSQL("DELETE FROM Nutrition WHERE months LIKE " + "\'%"+monthFormat.format(date.getTime())+"%\'" + " AND day LIKE " + "\'%"+dayFormat.format(date.getTime())+"%\'");
-
     }
+    public ArrayList<ItemClass> findWorkTableToday() {
+        SimpleDateFormat monthFormat = new SimpleDateFormat("MM");
+        SimpleDateFormat dayFormat = new SimpleDateFormat("dd");
+        Date date = new Date();
+        String myPath = "/data/data/com.example.pigfarm/databases/" + "InnerDatabase(SQLite).db";
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READWRITE);
+        ArrayList<ItemClass> ItemData = new ArrayList<ItemClass>();
+
+        String selectQuery = "SELECT  * FROM " + "work_table";
+
+        Cursor cursor = database.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst() && cursor.getCount() > 0) {
+            do {
+                if(monthFormat.format(date.getTime()).equals(cursor.getString(4)) && dayFormat.format(date.getTime()).equals(cursor.getString(5))){
+                    ItemClass contact = new ItemClass(cursor.getString(1), cursor.getString(3));
+                    ItemData.add(contact);
+                }
+
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return ItemData;
+    }
+    public ArrayList<ItemClass> findFoodTableToday() {
+        SimpleDateFormat monthFormat = new SimpleDateFormat("MM");
+        SimpleDateFormat dayFormat = new SimpleDateFormat("dd");
+        Date date = new Date();
+        String myPath = "/data/data/com.example.pigfarm/databases/" + "InnerDatabase(SQLite).db";
+        SQLiteDatabase database = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READWRITE);
+        ArrayList<ItemClass> ItemData = new ArrayList<ItemClass>();
+
+        String selectQuery = "SELECT  * FROM " + "Nutrition";
+
+        Cursor cursor = database.rawQuery(selectQuery, null);
+
+        if (cursor.moveToFirst() && cursor.getCount() > 0) {
+            do {
+                if(monthFormat.format(date.getTime()).equals(cursor.getString(2)) && dayFormat.format(date.getTime()).equals(cursor.getString(3))){
+                    ItemClass contact = new ItemClass(cursor.getString(0), cursor.getString(1));
+                    ItemData.add(contact);
+                }
+
+
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return ItemData; // return contact list
+    }
+
 
 
 }

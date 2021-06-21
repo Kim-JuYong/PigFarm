@@ -37,14 +37,15 @@ public class MainActivity extends AppCompatActivity {
     private RecommendFragment recommendFragment = new RecommendFragment();
     private MypageFragment mypageFragment = new MypageFragment();
     NutritionDBOpenHelper mDbOpenHelper = new NutritionDBOpenHelper(this);
-
         @Override
         protected void onCreate (Bundle savedInstanceState){
             super.onCreate(savedInstanceState);
 
             setContentView(R.layout.activity_main);
             mDbOpenHelper.open();
-
+            DbOpenHelper mDbOpenHelper2 = new DbOpenHelper(this);
+            mDbOpenHelper2.open();
+            mDbOpenHelper2.create();
             bottomNavigationView = findViewById(R.id.bottom_navigation);
 
             getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, recommendFragment).commitAllowingStateLoss();

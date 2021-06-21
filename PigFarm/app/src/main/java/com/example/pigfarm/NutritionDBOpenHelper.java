@@ -90,4 +90,5 @@ public class NutritionDBOpenHelper {
     public void deleteAllColumns() {
         mDB.delete("Nutrition", null, null);
     }
+
 }

@@ -30,6 +30,7 @@ public class WorkRegisterDialog {
 
         DbOpenHelper mDbOpenHelper = new DbOpenHelper(dialog.getContext());
         mDbOpenHelper.open();
+        mDbOpenHelper.create();
 
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.work_register_dialog_fragment);
@@ -61,6 +62,7 @@ public class WorkRegisterDialog {
                         use_calorie.getText().toString().trim(),
                         mFormat.format(date.getTime()),
                         dFormat.format(date.getTime()));
+                dialog.dismiss();
             }
         });
 

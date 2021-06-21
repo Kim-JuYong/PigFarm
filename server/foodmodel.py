@@ -28,7 +28,10 @@ foods = ['가지볶음', '간장게장', '갈비구이', '갈비찜', '갈비탕
 
 class FoodModel:
     def __init__(self):
-        self.model_path = '/home/pigfarm/food_model_0615_Inception_V3'
+        #self.model_path = '/home/pigfarm/model/food_model_0615_Inception_V3'
+        #self.model_path = '/home/pigfarm/model/food_model_0620_Inception_V3_128'
+        #self.model_path = '/home/pigfarm/model/food_model2'
+        self.model_path = '/home/pigfarm/model/food_model2_0620'
         self.model = tf.keras.models.load_model(self.model_path)
 
     # 최상위 확률 5개 음식 list형식으로 return

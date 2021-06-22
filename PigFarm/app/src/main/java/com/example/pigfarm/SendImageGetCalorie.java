@@ -18,7 +18,7 @@ import java.util.Iterator;
 
 public class SendImageGetCalorie extends Thread{
     // 서버 ip, port 정보
-    String serverIP = "220.84.169.150";
+    String serverIP = "127.0.0.1";
     int port = 24546;
     public static final int DEFAULT_BUFFER_SIZE = 32768;
     HashMap<String, String> foods = new HashMap<String, String>();

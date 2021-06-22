@@ -6,7 +6,7 @@ from urllib.parse import urlencode, quote_plus, unquote, quote
 class FoodApi:
     def __init__(self):
         #발급받은 api인증키
-        self.key = 'a5e69a869dec4c01b413'
+        self.key = '---delete---'
         #식품영양성분DB api 의 서비스명
         self.serviceid = 'I2790'
         #api에서 리턴받을 data type xml/json 두가지 형식이 있음

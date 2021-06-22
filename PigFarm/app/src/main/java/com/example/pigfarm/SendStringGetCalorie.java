@@ -17,7 +17,7 @@ import java.util.Iterator;
 
 public class SendStringGetCalorie extends Thread{
     // 서버 ip, port 정보
-    String serverIP = "220.84.169.150";
+    String serverIP = "127.0.0.1";
     int port = 24546;
     String calorie;
     String foodname;

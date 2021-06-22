@@ -1,0 +1,62 @@
+E:\anaconda3\envs\term\python.exe "E:\PyCharm Community Edition 2020.3.3\plugins\python-ce\helpers\pydev\pydevconsole.py" --mode=client --port=1120
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+sys.path.extend(['E:\\pythonProject\\term', 'E:/pythonProject/term'])
+PyDev console: starting.
+Python 3.8.8 (default, Feb 24 2021, 15:54:32) [MSC v.1928 64 bit (AMD64)] on win32
+>>> runfile('E:/pythonProject/term/food_inceptionV3.py', wdir='E:/pythonProject/term')
+Backend TkAgg is interactive backend. Turning interactive mode on.
+1 Physical GPUs, 1 Logical GPUs
+Found 14833 images belonging to 150 classes.
+Found 4483 images belonging to 150 classes.
+E:\anaconda3\envs\term\lib\site-packages\tensorflow\python\keras\optimizer_v2\optimizer_v2.py:374: UserWarning: The `lr` argument is deprecated, use `learning_rate` instead.
+  warnings.warn(
+ 141/2967 [>.............................] - ETA: 9:26 - loss: 6.0675 - accuracy: 0.0043E:\anaconda3\envs\term\lib\site-packages\PIL\Image.py:962: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+ 798/2967 [=======>......................] - ETA: 7:26 - loss: 5.9898 - accuracy: 0.0088E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1078 bytes but only got 0. Skipping tag 37500
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 125 bytes but only got 120. Skipping tag 37510
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 41988
+  warnings.warn(
+ 918/2967 [========>.....................] - ETA: 7:04 - loss: 5.9845 - accuracy: 0.0087E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:793: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 4. 
+  warnings.warn(str(msg))
+2967/2967 [==============================] - 692s 228ms/step - loss: 5.9374 - accuracy: 0.0093 - val_loss: 5.9850 - val_accuracy: 0.0109
+---evaluate---
+114/897 [==>...........................] - ETA: 51s - loss: 5.9749 - accuracy: 0.0140E:\anaconda3\envs\term\lib\site-packages\PIL\Image.py:962: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+897/897 [==============================] - 55s 62ms/step - loss: 5.9850 - accuracy: 0.0109
+
+E:\anaconda3\envs\term\python.exe "E:\PyCharm Community Edition 2020.3.3\plugins\python-ce\helpers\pydev\pydevconsole.py" --mode=client --port=1033
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+sys.path.extend(['E:\\pythonProject\\term', 'E:/pythonProject/term'])
+PyDev console: starting.
+Python 3.8.8 (default, Feb 24 2021, 15:54:32) [MSC v.1928 64 bit (AMD64)] on win32
+runfile('E:/pythonProject/term/load_mode_train.py', wdir='E:/pythonProject/term')
+Backend TkAgg is interactive backend. Turning interactive mode on.
+1 Physical GPUs, 1 Logical GPUs
+Found 14833 images belonging to 150 classes.
+Found 4483 images belonging to 150 classes.
+Epoch 1/5
+ 263/2967 [=>............................] - ETA: 9:40 - loss: 5.8862 - accuracy: 0.0084E:\anaconda3\envs\term\lib\site-packages\PIL\Image.py:962: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+1216/2967 [===========>..................] - ETA: 6:00 - loss: 5.8709 - accuracy: 0.0120E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:793: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 4. 
+  warnings.warn(str(msg))
+2580/2967 [=========================>....] - ETA: 1:18 - loss: 5.8567 - accuracy: 0.0118E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1078 bytes but only got 0. Skipping tag 37500
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 125 bytes but only got 120. Skipping tag 37510
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 41988
+  warnings.warn(
+2967/2967 [==============================] - 666s 222ms/step - loss: 5.8521 - accuracy: 0.0125 - val_loss: 5.9845 - val_accuracy: 0.0163
+Epoch 2/5
+2967/2967 [==============================] - 651s 219ms/step - loss: 5.7570 - accuracy: 0.0177 - val_loss: 5.7714 - val_accuracy: 0.0230
+Epoch 3/5
+2967/2967 [==============================] - 651s 219ms/step - loss: 5.6270 - accuracy: 0.0216 - val_loss: 5.7915 - val_accuracy: 0.0261
+Epoch 4/5
+2967/2967 [==============================] - 651s 220ms/step - loss: 5.4876 - accuracy: 0.0220 - val_loss: 5.7220 - val_accuracy: 0.0270
+Epoch 5/5
+2967/2967 [==============================] - 651s 219ms/step - loss: 5.3635 - accuracy: 0.0285 - val_loss: 5.3012 - val_accuracy: 0.0361
+---evaluate---
+ 47/897 [>.............................] - ETA: 53s - loss: 5.2552 - accuracy: 0.0468E:\anaconda3\envs\term\lib\site-packages\PIL\Image.py:962: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+897/897 [==============================] - 56s 62ms/step - loss: 5.3012 - accuracy: 0.0361

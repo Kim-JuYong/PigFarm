@@ -1,0 +1,806 @@
+E:\anaconda3\envs\term\python.exe "E:\PyCharm Community Edition 2020.3.3\plugins\python-ce\helpers\pydev\pydevconsole.py" --mode=client --port=1055
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+sys.path.extend(['E:\\pythonProject\\term', 'E:/pythonProject/term'])
+PyDev console: starting.
+Python 3.8.8 (default, Feb 24 2021, 15:54:32) [MSC v.1928 64 bit (AMD64)] on win32
+runfile('E:/pythonProject/term/food_inceptionV3.py', wdir='E:/pythonProject/term')
+Backend TkAgg is interactive backend. Turning interactive mode on.
+Found 135625 images belonging to 150 classes.
+Found 14833 images belonging to 150 classes.
+E:\anaconda3\envs\term\lib\site-packages\tensorflow\python\keras\optimizer_v2\optimizer_v2.py:374: UserWarning: The `lr` argument is deprecated, use `learning_rate` instead.
+  warnings.warn(
+Epoch 1/10
+13563/13563 [==============================] - 1888s 138ms/step - loss: 5.6609 - accuracy: 0.0212 - val_loss: 5.2169 - val_accuracy: 0.0405
+Epoch 2/10
+13563/13563 [==============================] - 1740s 128ms/step - loss: 5.0958 - accuracy: 0.0464 - val_loss: 4.7502 - val_accuracy: 0.0770
+Epoch 3/10
+13563/13563 [==============================] - 1733s 128ms/step - loss: 4.6610 - accuracy: 0.0796 - val_loss: 4.3772 - val_accuracy: 0.1085
+Epoch 4/10
+13563/13563 [==============================] - 1735s 128ms/step - loss: 4.2839 - accuracy: 0.1140 - val_loss: 4.1048 - val_accuracy: 0.1368
+Epoch 5/10
+13563/13563 [==============================] - 1738s 128ms/step - loss: 3.9581 - accuracy: 0.1494 - val_loss: 3.6713 - val_accuracy: 0.1861
+Epoch 6/10
+13563/13563 [==============================] - 1753s 129ms/step - loss: 3.6801 - accuracy: 0.1831 - val_loss: 3.3857 - val_accuracy: 0.2240
+Epoch 7/10
+13563/13563 [==============================] - 1794s 132ms/step - loss: 3.4538 - accuracy: 0.2146 - val_loss: 3.0107 - val_accuracy: 0.2904
+Epoch 8/10
+13563/13563 [==============================] - 1780s 131ms/step - loss: 3.2514 - accuracy: 0.2458 - val_loss: 2.8701 - val_accuracy: 0.3136
+Epoch 9/10
+13563/13563 [==============================] - 1747s 129ms/step - loss: 3.0834 - accuracy: 0.2733 - val_loss: 2.8036 - val_accuracy: 0.3232
+Epoch 10/10
+13563/13563 [==============================] - 1742s 128ms/step - loss: 2.9419 - accuracy: 0.2980 - val_loss: 2.6723 - val_accuracy: 0.3448
+---evaluate---
+1484/1484 [==============================] - 58s 39ms/step - loss: 2.6723 - accuracy: 0.3448
+
+
+
+E:\anaconda3\envs\term\python.exe "E:\PyCharm Community Edition 2020.3.3\plugins\python-ce\helpers\pydev\pydevconsole.py" --mode=client --port=1217
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+sys.path.extend(['E:\\pythonProject\\term', 'E:/pythonProject/term'])
+PyDev console: starting.
+Python 3.8.8 (default, Feb 24 2021, 15:54:32) [MSC v.1928 64 bit (AMD64)] on win32
+runfile('E:/pythonProject/term/food_inceptionV3.py', wdir='E:/pythonProject/term')
+Backend TkAgg is interactive backend. Turning interactive mode on.
+Found 135625 images belonging to 150 classes.
+Found 14833 images belonging to 150 classes.
+Epoch 1/10
+13563/13563 [==============================] - 1738s 127ms/step - loss: 2.8147 - accuracy: 0.3216 - val_loss: 2.9528 - val_accuracy: 0.2880
+Epoch 2/10
+13563/13563 [==============================] - 1727s 127ms/step - loss: 2.7126 - accuracy: 0.3395 - val_loss: 2.4177 - val_accuracy: 0.4003
+Epoch 3/10
+13563/13563 [==============================] - 1724s 127ms/step - loss: 2.6240 - accuracy: 0.3568 - val_loss: 2.4688 - val_accuracy: 0.3856
+Epoch 4/10
+13563/13563 [==============================] - 2047s 151ms/step - loss: 2.5389 - accuracy: 0.3761 - val_loss: 2.3358 - val_accuracy: 0.4141
+Epoch 5/10
+13563/13563 [==============================] - 1827s 135ms/step - loss: 2.4685 - accuracy: 0.3903 - val_loss: 2.1323 - val_accuracy: 0.4634
+Epoch 6/10
+13563/13563 [==============================] - 1733s 128ms/step - loss: 2.4074 - accuracy: 0.4039 - val_loss: 2.2337 - val_accuracy: 0.4375
+Epoch 7/10
+13563/13563 [==============================] - 1731s 128ms/step - loss: 2.3441 - accuracy: 0.4182 - val_loss: 2.2711 - val_accuracy: 0.4323
+Epoch 8/10
+13563/13563 [==============================] - 1734s 128ms/step - loss: 2.2880 - accuracy: 0.4306 - val_loss: 2.0779 - val_accuracy: 0.4711
+Epoch 9/10
+13563/13563 [==============================] - 1734s 128ms/step - loss: 2.2386 - accuracy: 0.4398 - val_loss: 1.9127 - val_accuracy: 0.5090
+Epoch 10/10
+13563/13563 [==============================] - 1731s 128ms/step - loss: 2.1909 - accuracy: 0.4519 - val_loss: 1.9336 - val_accuracy: 0.5038
+---evaluate---
+1484/1484 [==============================] - 60s 41ms/step - loss: 1.9336 - accuracy: 0.5038
+
+E:\anaconda3\envs\term\python.exe "E:\PyCharm Community Edition 2020.3.3\plugins\python-ce\helpers\pydev\pydevconsole.py" --mode=client --port=27062
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+sys.path.extend(['E:\\pythonProject\\term', 'E:/pythonProject/term'])
+PyDev console: starting.
+Python 3.8.8 (default, Feb 24 2021, 15:54:32) [MSC v.1928 64 bit (AMD64)] on win32
+runfile('E:/pythonProject/term/food_inceptionV3.py', wdir='E:/pythonProject/term')
+Backend TkAgg is interactive backend. Turning interactive mode on.
+Found 135625 images belonging to 150 classes.
+Found 14833 images belonging to 150 classes.
+Epoch 1/10
+13563/13563 [==============================] - 1723s 126ms/step - loss: 1.8068 - accuracy: 0.5393 - val_loss: 1.6581 - val_accuracy: 0.5716
+Epoch 2/10
+13563/13563 [==============================] - 1748s 129ms/step - loss: 1.7783 - accuracy: 0.5453 - val_loss: 1.6039 - val_accuracy: 0.5856
+Epoch 3/10
+13563/13563 [==============================] - 1762s 130ms/step - loss: 1.7562 - accuracy: 0.5524 - val_loss: 1.5886 - val_accuracy: 0.5917
+Epoch 4/10
+13563/13563 [==============================] - 1853s 137ms/step - loss: 1.7264 - accuracy: 0.5585 - val_loss: 1.6050 - val_accuracy: 0.5927
+Epoch 5/10
+13563/13563 [==============================] - 1777s 131ms/step - loss: 1.7074 - accuracy: 0.5633 - val_loss: 1.6825 - val_accuracy: 0.5687
+Epoch 6/10
+13563/13563 [==============================] - 2960s 218ms/step - loss: 1.6809 - accuracy: 0.5701 - val_loss: 1.5314 - val_accuracy: 0.6041
+Epoch 7/10
+13563/13563 [==============================] - 3847s 284ms/step - loss: 1.6585 - accuracy: 0.5734 - val_loss: 1.5623 - val_accuracy: 0.6008
+Epoch 8/10
+13563/13563 [==============================] - 2964s 219ms/step - loss: 1.6360 - accuracy: 0.5793 - val_loss: 1.6180 - val_accuracy: 0.5873
+Epoch 9/10
+13563/13563 [==============================] - 2744s 202ms/step - loss: 1.6130 - accuracy: 0.5854 - val_loss: 1.5142 - val_accuracy: 0.6127
+Epoch 10/10
+13563/13563 [==============================] - 2745s 202ms/step - loss: 1.5897 - accuracy: 0.5913 - val_loss: 1.5675 - val_accuracy: 0.5957
+---evaluate---
+1484/1484 [==============================] - 106s 71ms/step - loss: 1.5675 - accuracy: 0.5957
+
+
+
+E:\anaconda3\envs\term\python.exe "E:\PyCharm Community Edition 2020.3.3\plugins\python-ce\helpers\pydev\pydevconsole.py" --mode=client --port=31960
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+sys.path.extend(['E:\\pythonProject\\term', 'E:/pythonProject/term'])
+PyDev console: starting.
+Python 3.8.8 (default, Feb 24 2021, 15:54:32) [MSC v.1928 64 bit (AMD64)] on win32
+runfile('E:/pythonProject/term/food_inceptionV3.py', wdir='E:/pythonProject/term')
+Backend TkAgg is interactive backend. Turning interactive mode on.
+Found 135625 images belonging to 150 classes.
+Found 14833 images belonging to 150 classes.
+Epoch 1/10
+13563/13563 [==============================] - 1721s 126ms/step - loss: 1.5748 - accuracy: 0.5937 - val_loss: 1.5327 - val_accuracy: 0.6101
+Epoch 2/10
+13563/13563 [==============================] - 1708s 126ms/step - loss: 1.5510 - accuracy: 0.6011 - val_loss: 1.4174 - val_accuracy: 0.6353
+Epoch 3/10
+13563/13563 [==============================] - 1708s 126ms/step - loss: 1.5304 - accuracy: 0.6057 - val_loss: 1.4378 - val_accuracy: 0.6304
+Epoch 4/10
+13563/13563 [==============================] - 1709s 126ms/step - loss: 1.5164 - accuracy: 0.6089 - val_loss: 1.4244 - val_accuracy: 0.6332
+Epoch 5/10
+13563/13563 [==============================] - 1709s 126ms/step - loss: 1.4952 - accuracy: 0.6130 - val_loss: 1.4563 - val_accuracy: 0.6303
+Epoch 6/10
+13563/13563 [==============================] - 1708s 126ms/step - loss: 1.4763 - accuracy: 0.6180 - val_loss: 1.4060 - val_accuracy: 0.6386
+Epoch 7/10
+13563/13563 [==============================] - 1707s 126ms/step - loss: 1.4564 - accuracy: 0.6231 - val_loss: 1.4035 - val_accuracy: 0.6411
+Epoch 8/10
+13563/13563 [==============================] - 1706s 126ms/step - loss: 1.4366 - accuracy: 0.6277 - val_loss: 1.3660 - val_accuracy: 0.6523
+Epoch 9/10
+13563/13563 [==============================] - 1707s 126ms/step - loss: 1.4200 - accuracy: 0.6309 - val_loss: 1.4863 - val_accuracy: 0.6215
+Epoch 10/10
+13563/13563 [==============================] - 1707s 126ms/step - loss: 1.4081 - accuracy: 0.6355 - val_loss: 1.3105 - val_accuracy: 0.6613
+---evaluate---
+1484/1484 [==============================] - 59s 40ms/step - loss: 1.3105 - accuracy: 0.6613
+
+
+
+
+
+E:\anaconda3\envs\term\python.exe "E:\PyCharm Community Edition 2020.3.3\plugins\python-ce\helpers\pydev\pydevconsole.py" --mode=client --port=1151
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+sys.path.extend(['E:\\pythonProject\\term', 'E:/pythonProject/term'])
+PyDev console: starting.
+Python 3.8.8 (default, Feb 24 2021, 15:54:32) [MSC v.1928 64 bit (AMD64)] on win32
+runfile('E:/pythonProject/term/food_inceptionV3.py', wdir='E:/pythonProject/term')
+Backend TkAgg is interactive backend. Turning interactive mode on.
+Found 135625 images belonging to 150 classes.
+Found 14833 images belonging to 150 classes.
+Epoch 1/10
+13563/13563 [==============================] - 1737s 127ms/step - loss: 1.3897 - accuracy: 0.6399 - val_loss: 1.3955 - val_accuracy: 0.6417
+Epoch 2/10
+13563/13563 [==============================] - 1748s 129ms/step - loss: 1.3770 - accuracy: 0.6417 - val_loss: 1.4108 - val_accuracy: 0.6411
+Epoch 3/10
+13563/13563 [==============================] - 1707s 126ms/step - loss: 1.3587 - accuracy: 0.6465 - val_loss: 1.3134 - val_accuracy: 0.6641
+Epoch 4/10
+13563/13563 [==============================] - 1712s 126ms/step - loss: 1.3400 - accuracy: 0.6516 - val_loss: 1.3850 - val_accuracy: 0.6442
+Epoch 5/10
+13563/13563 [==============================] - 1708s 126ms/step - loss: 1.3280 - accuracy: 0.6543 - val_loss: 1.3516 - val_accuracy: 0.6534
+Epoch 6/10
+13563/13563 [==============================] - 1708s 126ms/step - loss: 1.3113 - accuracy: 0.6582 - val_loss: 1.3297 - val_accuracy: 0.6612
+Epoch 7/10
+13563/13563 [==============================] - 1708s 126ms/step - loss: 1.2972 - accuracy: 0.6613 - val_loss: 1.2439 - val_accuracy: 0.6853
+Epoch 8/10
+13563/13563 [==============================] - 1708s 126ms/step - loss: 1.2809 - accuracy: 0.6658 - val_loss: 1.2800 - val_accuracy: 0.6744
+Epoch 9/10
+13563/13563 [==============================] - 1707s 126ms/step - loss: 1.2623 - accuracy: 0.6700 - val_loss: 1.3434 - val_accuracy: 0.6620
+Epoch 10/10
+13563/13563 [==============================] - 1708s 126ms/step - loss: 1.2556 - accuracy: 0.6721 - val_loss: 1.3835 - val_accuracy: 0.6500
+---evaluate---
+1484/1484 [==============================] - 59s 40ms/step - loss: 1.3835 - accuracy: 0.6500
+
+
+
+E:\anaconda3\envs\term\python.exe "E:\PyCharm Community Edition 2020.3.3\plugins\python-ce\helpers\pydev\pydevconsole.py" --mode=client --port=13960
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+sys.path.extend(['E:\\pythonProject\\term', 'E:/pythonProject/term'])
+PyDev console: starting.
+Python 3.8.8 (default, Feb 24 2021, 15:54:32) [MSC v.1928 64 bit (AMD64)] on win32
+runfile('E:/pythonProject/term/food_inceptionV3.py', wdir='E:/pythonProject/term')
+Backend TkAgg is interactive backend. Turning interactive mode on.
+Found 135625 images belonging to 150 classes.
+Found 14833 images belonging to 150 classes.
+Epoch 1/10
+13563/13563 [==============================] - 1773s 130ms/step - loss: 1.1126 - accuracy: 0.7077 - val_loss: 1.2900 - val_accuracy: 0.6792
+Epoch 2/10
+13563/13563 [==============================] - 1737s 128ms/step - loss: 1.0941 - accuracy: 0.7130 - val_loss: 1.1954 - val_accuracy: 0.7059
+Epoch 3/10
+13563/13563 [==============================] - 1720s 127ms/step - loss: 1.0846 - accuracy: 0.7154 - val_loss: 1.2213 - val_accuracy: 0.7008
+Epoch 4/10
+13563/13563 [==============================] - 1740s 128ms/step - loss: 1.0731 - accuracy: 0.7183 - val_loss: 1.1608 - val_accuracy: 0.7135
+Epoch 5/10
+13563/13563 [==============================] - 1770s 130ms/step - loss: 1.0530 - accuracy: 0.7221 - val_loss: 1.1534 - val_accuracy: 0.7174
+Epoch 6/10
+13563/13563 [==============================] - 1754s 129ms/step - loss: 1.0492 - accuracy: 0.7239 - val_loss: 1.1638 - val_accuracy: 0.7142
+Epoch 7/10
+13563/13563 [==============================] - 1709s 126ms/step - loss: 1.0377 - accuracy: 0.7261 - val_loss: 1.2292 - val_accuracy: 0.6945
+Epoch 8/10
+13563/13563 [==============================] - 1710s 126ms/step - loss: 1.0295 - accuracy: 0.7287 - val_loss: 1.1342 - val_accuracy: 0.7191
+Epoch 9/10
+13563/13563 [==============================] - 1709s 126ms/step - loss: 1.0210 - accuracy: 0.7311 - val_loss: 1.1953 - val_accuracy: 0.7050
+Epoch 10/10
+13563/13563 [==============================] - 1709s 126ms/step - loss: 1.0052 - accuracy: 0.7360 - val_loss: 1.1907 - val_accuracy: 0.7089
+---evaluate---
+1484/1484 [==============================] - 60s 40ms/step - loss: 1.1907 - accuracy: 0.7089
+
+
+
+E:\anaconda3\envs\term\python.exe "E:\PyCharm Community Edition 2020.3.3\plugins\python-ce\helpers\pydev\pydevconsole.py" --mode=client --port=5600
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+sys.path.extend(['E:\\pythonProject\\term', 'E:/pythonProject/term'])
+PyDev console: starting.
+Python 3.8.8 (default, Feb 24 2021, 15:54:32) [MSC v.1928 64 bit (AMD64)] on win32
+runfile('E:/pythonProject/term/food_inceptionV3.py', wdir='E:/pythonProject/term')
+Backend TkAgg is interactive backend. Turning interactive mode on.
+Found 135625 images belonging to 150 classes.
+Found 14833 images belonging to 150 classes.
+Epoch 1/10
+13563/13563 [==============================] - 3269s 240ms/step - loss: 0.9945 - accuracy: 0.7379 - val_loss: 1.1734 - val_accuracy: 0.7139
+Epoch 2/10
+13563/13563 [==============================] - 6997s 516ms/step - loss: 0.9858 - accuracy: 0.7410 - val_loss: 1.2037 - val_accuracy: 0.7084
+Epoch 3/10
+13563/13563 [==============================] - 7103s 524ms/step - loss: 0.9742 - accuracy: 0.7427 - val_loss: 1.2399 - val_accuracy: 0.6997
+Epoch 4/10
+13563/13563 [==============================] - 7048s 520ms/step - loss: 0.9643 - accuracy: 0.7459 - val_loss: 1.1318 - val_accuracy: 0.7202
+Epoch 5/10
+13563/13563 [==============================] - 7138s 526ms/step - loss: 0.9478 - accuracy: 0.7497 - val_loss: 1.1209 - val_accuracy: 0.7286
+Epoch 6/10
+13563/13563 [==============================] - 7058s 520ms/step - loss: 0.9425 - accuracy: 0.7509 - val_loss: 1.1923 - val_accuracy: 0.7115
+Epoch 7/10
+13563/13563 [==============================] - 6950s 512ms/step - loss: 0.9358 - accuracy: 0.7519 - val_loss: 1.1360 - val_accuracy: 0.7274
+Epoch 8/10
+13563/13563 [==============================] - 6939s 512ms/step - loss: 0.9262 - accuracy: 0.7564 - val_loss: 1.0996 - val_accuracy: 0.7373
+Epoch 9/10
+13563/13563 [==============================] - 6990s 515ms/step - loss: 0.9130 - accuracy: 0.7592 - val_loss: 1.1854 - val_accuracy: 0.7120
+Epoch 10/10
+13563/13563 [==============================] - 7000s 516ms/step - loss: 0.9059 - accuracy: 0.7622 - val_loss: 1.1850 - val_accuracy: 0.7128
+---evaluate---
+1484/1484 [==============================] - 118s 79ms/step - loss: 1.1850 - accuracy: 0.7128
+
+
+E:\anaconda3\envs\term\python.exe "E:\PyCharm Community Edition 2020.3.3\plugins\python-ce\helpers\pydev\pydevconsole.py" --mode=client --port=13656
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+sys.path.extend(['E:\\pythonProject\\term', 'E:/pythonProject/term'])
+PyDev console: starting.
+Python 3.8.8 (default, Feb 24 2021, 15:54:32) [MSC v.1928 64 bit (AMD64)] on win32
+runfile('E:/pythonProject/term/food_inceptionV3.py', wdir='E:/pythonProject/term')
+Backend TkAgg is interactive backend. Turning interactive mode on.
+1 Physical GPUs, 1 Logical GPUs
+Found 135625 images belonging to 150 classes.
+Found 14833 images belonging to 150 classes.
+Epoch 1/10
+  223/13563 [..............................] - ETA: 26:59 - loss: 0.8375 - accuracy: 0.7852E:\anaconda3\envs\term\lib\site-packages\PIL\Image.py:962: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+  923/13563 [=>............................] - ETA: 25:36 - loss: 0.8759 - accuracy: 0.7715E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:793: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 4. 
+  warnings.warn(str(msg))
+ 2311/13563 [====>.........................] - ETA: 22:49 - loss: 0.8693 - accuracy: 0.7724E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1498 bytes but only got 0. Skipping tag 37500
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 125 bytes but only got 120. Skipping tag 37510
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 41988
+  warnings.warn(
+ 2860/13563 [=====>........................] - ETA: 21:44 - loss: 0.8674 - accuracy: 0.7723E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1078 bytes but only got 0. Skipping tag 37500
+  warnings.warn(
+ 5737/13563 [===========>..................] - ETA: 15:54 - loss: 0.8713 - accuracy: 0.7703E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 2. Skipping tag 37386
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 37396
+  warnings.warn(
+10099/13563 [=====================>........] - ETA: 7:03 - loss: 0.8842 - accuracy: 0.7669E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 20 bytes but only got 6. Skipping tag 272
+  warnings.warn(
+12868/13563 [===========================>..] - ETA: 1:25 - loss: 0.8881 - accuracy: 0.7660E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 2. Skipping tag 41486
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 41487
+  warnings.warn(
+13563/13563 [==============================] - 1729s 127ms/step - loss: 0.8903 - accuracy: 0.7655 - val_loss: 1.1646 - val_accuracy: 0.7231
+Epoch 2/10
+13563/13563 [==============================] - 1717s 127ms/step - loss: 0.8844 - accuracy: 0.7665 - val_loss: 1.0924 - val_accuracy: 0.7416
+Epoch 3/10
+13563/13563 [==============================] - 1717s 127ms/step - loss: 0.8781 - accuracy: 0.7688 - val_loss: 1.1393 - val_accuracy: 0.7316
+Epoch 4/10
+13563/13563 [==============================] - 1717s 127ms/step - loss: 0.8654 - accuracy: 0.7712 - val_loss: 1.1644 - val_accuracy: 0.7252
+Epoch 5/10
+13563/13563 [==============================] - 1719s 127ms/step - loss: 0.8536 - accuracy: 0.7740 - val_loss: 1.0740 - val_accuracy: 0.7467
+Epoch 6/10
+13563/13563 [==============================] - 1722s 127ms/step - loss: 0.8504 - accuracy: 0.7758 - val_loss: 1.1478 - val_accuracy: 0.7241
+Epoch 7/10
+13563/13563 [==============================] - 1720s 127ms/step - loss: 0.8385 - accuracy: 0.7781 - val_loss: 1.0995 - val_accuracy: 0.7383
+Epoch 8/10
+13563/13563 [==============================] - 1719s 127ms/step - loss: 0.8314 - accuracy: 0.7800 - val_loss: 1.0893 - val_accuracy: 0.7477
+Epoch 9/10
+13563/13563 [==============================] - 1718s 127ms/step - loss: 0.8269 - accuracy: 0.7814 - val_loss: 1.1209 - val_accuracy: 0.7395
+Epoch 10/10
+13563/13563 [==============================] - 1716s 127ms/step - loss: 0.8126 - accuracy: 0.7845 - val_loss: 1.2191 - val_accuracy: 0.7117
+---evaluate---
+ 240/1484 [===>..........................] - ETA: 48s - loss: 1.2460 - accuracy: 0.7100E:\anaconda3\envs\term\lib\site-packages\PIL\Image.py:962: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+ 761/1484 [==============>...............] - ETA: 29s - loss: 1.2436 - accuracy: 0.7097E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1078 bytes but only got 0. Skipping tag 37500
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 125 bytes but only got 120. Skipping tag 37510
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 41988
+  warnings.warn(
+ 826/1484 [===============>..............] - ETA: 26s - loss: 1.2409 - accuracy: 0.7099E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:793: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 4. 
+  warnings.warn(str(msg))
+1484/1484 [==============================] - 60s 40ms/step - loss: 1.2191 - accuracy: 0.7117
+
+
+
+E:\anaconda3\envs\term\python.exe "E:\PyCharm Community Edition 2020.3.3\plugins\python-ce\helpers\pydev\pydevconsole.py" --mode=client --port=1086
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+sys.path.extend(['E:\\pythonProject\\term', 'E:/pythonProject/term'])
+PyDev console: starting.
+Python 3.8.8 (default, Feb 24 2021, 15:54:32) [MSC v.1928 64 bit (AMD64)] on win32
+runfile('E:/pythonProject/term/food_inceptionV3.py', wdir='E:/pythonProject/term')
+Backend TkAgg is interactive backend. Turning interactive mode on.
+1 Physical GPUs, 1 Logical GPUs
+Found 135625 images belonging to 150 classes.
+Found 14833 images belonging to 150 classes.
+Epoch 1/10
+  38/5425 [..............................] - ETA: 17:41 - loss: 0.5318 - accuracy: 0.8674E:\anaconda3\envs\term\lib\site-packages\PIL\Image.py:962: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+  60/5425 [..............................] - ETA: 17:27 - loss: 0.5232 - accuracy: 0.8707E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:793: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 4. 
+  warnings.warn(str(msg))
+1425/5425 [======>.......................] - ETA: 13:00 - loss: 0.4907 - accuracy: 0.8849E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1078 bytes but only got 0. Skipping tag 37500
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 125 bytes but only got 120. Skipping tag 37510
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 41988
+  warnings.warn(
+1911/5425 [=========>....................] - ETA: 11:26 - loss: 0.4895 - accuracy: 0.8848E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1498 bytes but only got 0. Skipping tag 37500
+  warnings.warn(
+2933/5425 [===============>..............] - ETA: 8:06 - loss: 0.4815 - accuracy: 0.8859E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 2. Skipping tag 41486
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 41487
+  warnings.warn(
+3934/5425 [====================>.........] - ETA: 4:50 - loss: 0.4758 - accuracy: 0.8876E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 2. Skipping tag 37386
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 37396
+  warnings.warn(
+4553/5425 [========================>.....] - ETA: 2:50 - loss: 0.4746 - accuracy: 0.8880E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 20 bytes but only got 6. Skipping tag 272
+  warnings.warn(
+5425/5425 [==============================] - 1128s 206ms/step - loss: 0.4712 - accuracy: 0.8890 - val_loss: 0.9839 - val_accuracy: 0.7748
+Epoch 2/10
+5425/5425 [==============================] - 1124s 207ms/step - loss: 0.4324 - accuracy: 0.8990 - val_loss: 0.9724 - val_accuracy: 0.7773
+Epoch 3/10
+5425/5425 [==============================] - 1117s 206ms/step - loss: 0.4145 - accuracy: 0.9046 - val_loss: 0.9794 - val_accuracy: 0.7797
+Epoch 4/10
+5425/5425 [==============================] - 1126s 208ms/step - loss: 0.4024 - accuracy: 0.9073 - val_loss: 0.9758 - val_accuracy: 0.7824
+Epoch 5/10
+5425/5425 [==============================] - 1142s 211ms/step - loss: 0.3926 - accuracy: 0.9096 - val_loss: 1.0017 - val_accuracy: 0.7758
+Epoch 6/10
+5425/5425 [==============================] - 1129s 208ms/step - loss: 0.3874 - accuracy: 0.9112 - val_loss: 0.9656 - val_accuracy: 0.7848
+Epoch 7/10
+5425/5425 [==============================] - 1129s 208ms/step - loss: 0.3774 - accuracy: 0.9129 - val_loss: 0.9921 - val_accuracy: 0.7809
+Epoch 8/10
+5425/5425 [==============================] - 1124s 207ms/step - loss: 0.3705 - accuracy: 0.9154 - val_loss: 0.9816 - val_accuracy: 0.7808
+Epoch 9/10
+5425/5425 [==============================] - 1123s 207ms/step - loss: 0.3634 - accuracy: 0.9173 - val_loss: 0.9762 - val_accuracy: 0.7850
+Epoch 10/10
+5425/5425 [==============================] - 1118s 206ms/step - loss: 0.3553 - accuracy: 0.9191 - val_loss: 1.0128 - val_accuracy: 0.7775
+---evaluate---
+E:\anaconda3\envs\term\lib\site-packages\PIL\Image.py:962: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+ 850/1484 [================>.............] - ETA: 25s - loss: 1.0262 - accuracy: 0.7753E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1078 bytes but only got 0. Skipping tag 37500
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 125 bytes but only got 120. Skipping tag 37510
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 41988
+  warnings.warn(
+1440/1484 [============================>.] - ETA: 1s - loss: 1.0139 - accuracy: 0.7774E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:793: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 4. 
+  warnings.warn(str(msg))
+1484/1484 [==============================] - 59s 40ms/step - loss: 1.0128 - accuracy: 0.7775
+
+
+E:\anaconda3\envs\term\python.exe "E:\PyCharm Community Edition 2020.3.3\plugins\python-ce\helpers\pydev\pydevconsole.py" --mode=client --port=1029
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+sys.path.extend(['E:\\pythonProject\\term', 'E:/pythonProject/term'])
+PyDev console: starting.
+Python 3.8.8 (default, Feb 24 2021, 15:54:32) [MSC v.1928 64 bit (AMD64)] on win32
+runfile('E:/pythonProject/term/food_inceptionV3.py', wdir='E:/pythonProject/term')
+Backend TkAgg is interactive backend. Turning interactive mode on.
+1 Physical GPUs, 1 Logical GPUs
+Found 135625 images belonging to 150 classes.
+Found 14833 images belonging to 150 classes.
+Epoch 1/10
+   8/5425 [..............................] - ETA: 17:23 - loss: 0.2970 - accuracy: 0.9350E:\anaconda3\envs\term\lib\site-packages\PIL\Image.py:962: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+ 126/5425 [..............................] - ETA: 17:13 - loss: 0.3285 - accuracy: 0.9295E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1078 bytes but only got 0. Skipping tag 37500
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 125 bytes but only got 120. Skipping tag 37510
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 41988
+  warnings.warn(
+ 240/5425 [>.............................] - ETA: 16:50 - loss: 0.3404 - accuracy: 0.9237E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 20 bytes but only got 6. Skipping tag 272
+  warnings.warn(
+ 677/5425 [==>...........................] - ETA: 15:27 - loss: 0.3452 - accuracy: 0.9204E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:793: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 4. 
+  warnings.warn(str(msg))
+ 939/5425 [====>.........................] - ETA: 14:39 - loss: 0.3475 - accuracy: 0.9202E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 2. Skipping tag 37386
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 37396
+  warnings.warn(
+1579/5425 [=======>......................] - ETA: 12:36 - loss: 0.3487 - accuracy: 0.9211E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 2. Skipping tag 41486
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 41487
+  warnings.warn(
+1649/5425 [========>.....................] - ETA: 12:22 - loss: 0.3486 - accuracy: 0.9210E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1498 bytes but only got 0. Skipping tag 37500
+  warnings.warn(
+5425/5425 [==============================] - 1152s 211ms/step - loss: 0.3521 - accuracy: 0.9198 - val_loss: 0.9507 - val_accuracy: 0.7913
+Epoch 2/10
+5425/5425 [==============================] - 1131s 208ms/step - loss: 0.3474 - accuracy: 0.9206 - val_loss: 0.9721 - val_accuracy: 0.7875
+Epoch 3/10
+5425/5425 [==============================] - 1143s 211ms/step - loss: 0.3378 - accuracy: 0.9247 - val_loss: 0.9823 - val_accuracy: 0.7878
+Epoch 4/10
+5425/5425 [==============================] - 1137s 210ms/step - loss: 0.3379 - accuracy: 0.9237 - val_loss: 0.9949 - val_accuracy: 0.7823
+Epoch 5/10
+5425/5425 [==============================] - 1125s 207ms/step - loss: 0.3321 - accuracy: 0.9248 - val_loss: 1.0062 - val_accuracy: 0.7813
+Epoch 6/10
+5425/5425 [==============================] - 1146s 211ms/step - loss: 0.3283 - accuracy: 0.9261 - val_loss: 0.9915 - val_accuracy: 0.7866
+Epoch 7/10
+5425/5425 [==============================] - 1137s 210ms/step - loss: 0.3230 - accuracy: 0.9271 - val_loss: 0.9669 - val_accuracy: 0.7924
+Epoch 8/10
+5425/5425 [==============================] - 1120s 206ms/step - loss: 0.3190 - accuracy: 0.9285 - val_loss: 0.9695 - val_accuracy: 0.7903
+Epoch 9/10
+5425/5425 [==============================] - 1125s 207ms/step - loss: 0.3146 - accuracy: 0.9294 - val_loss: 1.0203 - val_accuracy: 0.7822
+Epoch 10/10
+5425/5425 [==============================] - 1133s 209ms/step - loss: 0.3124 - accuracy: 0.9297 - val_loss: 0.9930 - val_accuracy: 0.7883
+---evaluate---
+  46/1484 [..............................] - ETA: 1:03 - loss: 1.1999 - accuracy: 0.7522E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1078 bytes but only got 0. Skipping tag 37500
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 125 bytes but only got 120. Skipping tag 37510
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 41988
+  warnings.warn(
+ 222/1484 [===>..........................] - ETA: 49s - loss: 1.0197 - accuracy: 0.7770E:\anaconda3\envs\term\lib\site-packages\PIL\Image.py:962: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+1236/1484 [=======================>......] - ETA: 9s - loss: 0.9917 - accuracy: 0.7879 E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:793: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 4. 
+  warnings.warn(str(msg))
+1484/1484 [==============================] - 60s 40ms/step - loss: 0.9930 - accuracy: 0.7883
+
+
+
+E:\anaconda3\envs\term\python.exe "E:\PyCharm Community Edition 2020.3.3\plugins\python-ce\helpers\pydev\pydevconsole.py" --mode=client --port=33063
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+sys.path.extend(['E:\\pythonProject\\term', 'E:/pythonProject/term'])
+PyDev console: starting.
+Python 3.8.8 (default, Feb 24 2021, 15:54:32) [MSC v.1928 64 bit (AMD64)] on win32
+runfile('E:/pythonProject/term/food_inceptionV3.py', wdir='E:/pythonProject/term')
+Backend TkAgg is interactive backend. Turning interactive mode on.
+1 Physical GPUs, 1 Logical GPUs
+Found 135625 images belonging to 150 classes.
+Found 14833 images belonging to 150 classes.
+Epoch 1/10
+ 208/5425 [>.............................] - ETA: 16:51 - loss: 0.2953 - accuracy: 0.9365E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1498 bytes but only got 0. Skipping tag 37500
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 125 bytes but only got 120. Skipping tag 37510
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 41988
+  warnings.warn(
+ 216/5425 [>.............................] - ETA: 16:49 - loss: 0.2965 - accuracy: 0.9357E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:793: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 4. 
+  warnings.warn(str(msg))
+ 401/5425 [=>............................] - ETA: 16:15 - loss: 0.2976 - accuracy: 0.9371E:\anaconda3\envs\term\lib\site-packages\PIL\Image.py:962: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+ 479/5425 [=>............................] - ETA: 15:59 - loss: 0.2939 - accuracy: 0.9384E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 2. Skipping tag 37386
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 37396
+  warnings.warn(
+1578/5425 [=======>......................] - ETA: 12:29 - loss: 0.2999 - accuracy: 0.9352E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 20 bytes but only got 6. Skipping tag 272
+  warnings.warn(
+2534/5425 [=============>................] - ETA: 9:24 - loss: 0.3027 - accuracy: 0.9337E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 2. Skipping tag 41486
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 41487
+  warnings.warn(
+3815/5425 [====================>.........] - ETA: 5:14 - loss: 0.3050 - accuracy: 0.9326E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1078 bytes but only got 0. Skipping tag 37500
+  warnings.warn(
+5425/5425 [==============================] - 1131s 207ms/step - loss: 0.3048 - accuracy: 0.9326 - val_loss: 1.0005 - val_accuracy: 0.7877
+Epoch 2/10
+5425/5425 [==============================] - 1116s 206ms/step - loss: 0.3037 - accuracy: 0.9327 - val_loss: 1.0063 - val_accuracy: 0.7820
+Epoch 3/10
+5425/5425 [==============================] - 1113s 205ms/step - loss: 0.2993 - accuracy: 0.9331 - val_loss: 0.9896 - val_accuracy: 0.7884
+Epoch 4/10
+5425/5425 [==============================] - 1114s 205ms/step - loss: 0.2972 - accuracy: 0.9346 - val_loss: 1.0259 - val_accuracy: 0.7827
+Epoch 5/10
+5425/5425 [==============================] - 1118s 206ms/step - loss: 0.2913 - accuracy: 0.9362 - val_loss: 1.0098 - val_accuracy: 0.7877
+Epoch 6/10
+5425/5425 [==============================] - 1114s 205ms/step - loss: 0.2914 - accuracy: 0.9351 - val_loss: 1.0249 - val_accuracy: 0.7837
+Epoch 7/10
+5425/5425 [==============================] - 1119s 206ms/step - loss: 0.2883 - accuracy: 0.9364 - val_loss: 0.9993 - val_accuracy: 0.7887
+Epoch 8/10
+5425/5425 [==============================] - 1119s 206ms/step - loss: 0.2857 - accuracy: 0.9369 - val_loss: 1.0100 - val_accuracy: 0.7901
+Epoch 9/10
+5425/5425 [==============================] - 1124s 207ms/step - loss: 0.2851 - accuracy: 0.9373 - val_loss: 0.9954 - val_accuracy: 0.7922
+Epoch 10/10
+5425/5425 [==============================] - 1115s 206ms/step - loss: 0.2809 - accuracy: 0.9388 - val_loss: 0.9927 - val_accuracy: 0.7920
+---evaluate---
+ 115/1484 [=>............................] - ETA: 1:00 - loss: 0.9875 - accuracy: 0.7843E:\anaconda3\envs\term\lib\site-packages\PIL\Image.py:962: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+ 219/1484 [===>..........................] - ETA: 51s - loss: 1.0006 - accuracy: 0.7854E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:793: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 4. 
+  warnings.warn(str(msg))
+1183/1484 [======================>.......] - ETA: 12s - loss: 0.9949 - accuracy: 0.7911E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1078 bytes but only got 0. Skipping tag 37500
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 125 bytes but only got 120. Skipping tag 37510
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 41988
+  warnings.warn(
+1484/1484 [==============================] - 60s 41ms/step - loss: 0.9927 - accuracy: 0.7920
+
+
+E:\anaconda3\envs\term\python.exe "E:\PyCharm Community Edition 2020.3.3\plugins\python-ce\helpers\pydev\pydevconsole.py" --mode=client --port=1196
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+sys.path.extend(['E:\\pythonProject\\term', 'E:/pythonProject/term'])
+PyDev console: starting.
+Python 3.8.8 (default, Feb 24 2021, 15:54:32) [MSC v.1928 64 bit (AMD64)] on win32
+runfile('E:/pythonProject/term/food_inceptionV3.py', wdir='E:/pythonProject/term')
+Backend TkAgg is interactive backend. Turning interactive mode on.
+1 Physical GPUs, 1 Logical GPUs
+Found 135625 images belonging to 150 classes.
+Found 14833 images belonging to 150 classes.
+Epoch 1/100
+ 163/5425 [..............................] - ETA: 17:04 - loss: 0.2680 - accuracy: 0.9465E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1078 bytes but only got 0. Skipping tag 37500
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 125 bytes but only got 120. Skipping tag 37510
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 41988
+  warnings.warn(
+ 172/5425 [..............................] - ETA: 17:03 - loss: 0.2680 - accuracy: 0.9474E:\anaconda3\envs\term\lib\site-packages\PIL\Image.py:962: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+ 590/5425 [==>...........................] - ETA: 15:37 - loss: 0.2704 - accuracy: 0.9430E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:793: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 4. 
+  warnings.warn(str(msg))
+2140/5425 [==========>...................] - ETA: 10:39 - loss: 0.2719 - accuracy: 0.9416E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 2. Skipping tag 37386
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 37396
+  warnings.warn(
+2500/5425 [============>.................] - ETA: 9:29 - loss: 0.2719 - accuracy: 0.9416E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1498 bytes but only got 0. Skipping tag 37500
+  warnings.warn(
+3336/5425 [=================>............] - ETA: 6:46 - loss: 0.2721 - accuracy: 0.9414E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 2. Skipping tag 41486
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 41487
+  warnings.warn(
+3379/5425 [=================>............] - ETA: 6:38 - loss: 0.2722 - accuracy: 0.9414E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 20 bytes but only got 6. Skipping tag 272
+  warnings.warn(
+5425/5425 [==============================] - 1125s 206ms/step - loss: 0.2760 - accuracy: 0.9399 - val_loss: 0.9934 - val_accuracy: 0.7924
+Epoch 2/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.2727 - accuracy: 0.9406 - val_loss: 1.0104 - val_accuracy: 0.7876
+Epoch 3/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.2723 - accuracy: 0.9411 - val_loss: 0.9959 - val_accuracy: 0.7924
+Epoch 4/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.2709 - accuracy: 0.9409 - val_loss: 1.0105 - val_accuracy: 0.7896
+Epoch 5/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.2645 - accuracy: 0.9429 - val_loss: 1.0123 - val_accuracy: 0.7901
+Epoch 6/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.2637 - accuracy: 0.9432 - val_loss: 0.9996 - val_accuracy: 0.7944
+Epoch 7/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.2605 - accuracy: 0.9435 - val_loss: 1.0346 - val_accuracy: 0.7844
+Epoch 8/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.2579 - accuracy: 0.9450 - val_loss: 1.0104 - val_accuracy: 0.7893
+Epoch 9/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.2586 - accuracy: 0.9442 - val_loss: 0.9998 - val_accuracy: 0.7940
+Epoch 10/100
+5425/5425 [==============================] - 1110s 205ms/step - loss: 0.2554 - accuracy: 0.9445 - val_loss: 1.0144 - val_accuracy: 0.7899
+Epoch 11/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.2543 - accuracy: 0.9455 - val_loss: 1.0774 - val_accuracy: 0.7762
+Epoch 12/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.2502 - accuracy: 0.9470 - val_loss: 0.9929 - val_accuracy: 0.7959
+Epoch 13/100
+5425/5425 [==============================] - 1108s 204ms/step - loss: 0.2454 - accuracy: 0.9487 - val_loss: 0.9948 - val_accuracy: 0.7969
+Epoch 14/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.2455 - accuracy: 0.9477 - val_loss: 1.0111 - val_accuracy: 0.7915
+Epoch 15/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.2454 - accuracy: 0.9484 - val_loss: 1.0200 - val_accuracy: 0.7925
+Epoch 16/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.2449 - accuracy: 0.9480 - val_loss: 1.0081 - val_accuracy: 0.7918
+Epoch 17/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.2409 - accuracy: 0.9494 - val_loss: 0.9892 - val_accuracy: 0.7970
+Epoch 18/100
+5425/5425 [==============================] - 1113s 205ms/step - loss: 0.2403 - accuracy: 0.9488 - val_loss: 1.0109 - val_accuracy: 0.7951
+Epoch 19/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.2375 - accuracy: 0.9498 - val_loss: 1.0545 - val_accuracy: 0.7844
+Epoch 20/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.2326 - accuracy: 0.9517 - val_loss: 1.0184 - val_accuracy: 0.7964
+Epoch 21/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.2322 - accuracy: 0.9514 - val_loss: 1.0258 - val_accuracy: 0.7905
+Epoch 22/100
+5425/5425 [==============================] - 1113s 205ms/step - loss: 0.2293 - accuracy: 0.9525 - val_loss: 1.0125 - val_accuracy: 0.7963
+Epoch 23/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.2282 - accuracy: 0.9529 - val_loss: 1.0266 - val_accuracy: 0.7907
+Epoch 24/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.2283 - accuracy: 0.9523 - val_loss: 1.0314 - val_accuracy: 0.7914
+Epoch 25/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.2243 - accuracy: 0.9542 - val_loss: 1.0000 - val_accuracy: 0.7986
+Epoch 26/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.2249 - accuracy: 0.9533 - val_loss: 1.0776 - val_accuracy: 0.7793
+Epoch 27/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.2240 - accuracy: 0.9533 - val_loss: 1.0060 - val_accuracy: 0.7975
+Epoch 28/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.2201 - accuracy: 0.9546 - val_loss: 0.9853 - val_accuracy: 0.8007
+Epoch 29/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.2177 - accuracy: 0.9549 - val_loss: 1.0383 - val_accuracy: 0.7907
+Epoch 30/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.2169 - accuracy: 0.9560 - val_loss: 1.0414 - val_accuracy: 0.7910
+Epoch 31/100
+5425/5425 [==============================] - 1110s 205ms/step - loss: 0.2172 - accuracy: 0.9553 - val_loss: 1.0344 - val_accuracy: 0.7925
+Epoch 32/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.2164 - accuracy: 0.9558 - val_loss: 0.9994 - val_accuracy: 0.7985
+Epoch 33/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.2141 - accuracy: 0.9568 - val_loss: 1.0019 - val_accuracy: 0.7982
+Epoch 34/100
+5425/5425 [==============================] - 1114s 205ms/step - loss: 0.2103 - accuracy: 0.9577 - val_loss: 1.0220 - val_accuracy: 0.7954
+Epoch 35/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.2096 - accuracy: 0.9574 - val_loss: 1.0480 - val_accuracy: 0.7920
+Epoch 36/100
+5425/5425 [==============================] - 1115s 206ms/step - loss: 0.2075 - accuracy: 0.9581 - val_loss: 1.0385 - val_accuracy: 0.7946
+Epoch 37/100
+5425/5425 [==============================] - 1117s 206ms/step - loss: 0.2069 - accuracy: 0.9581 - val_loss: 1.0293 - val_accuracy: 0.7950
+Epoch 38/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.2081 - accuracy: 0.9575 - val_loss: 1.0439 - val_accuracy: 0.7908
+Epoch 39/100
+5425/5425 [==============================] - 1113s 205ms/step - loss: 0.2031 - accuracy: 0.9592 - val_loss: 1.0018 - val_accuracy: 0.8019
+Epoch 40/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.2011 - accuracy: 0.9594 - val_loss: 0.9885 - val_accuracy: 0.8027
+Epoch 41/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.2031 - accuracy: 0.9590 - val_loss: 1.0524 - val_accuracy: 0.7910
+Epoch 42/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.2002 - accuracy: 0.9600 - val_loss: 1.0015 - val_accuracy: 0.7996
+Epoch 43/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.1993 - accuracy: 0.9599 - val_loss: 1.0265 - val_accuracy: 0.7937
+Epoch 44/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.1973 - accuracy: 0.9601 - val_loss: 1.0048 - val_accuracy: 0.7997
+Epoch 45/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.1945 - accuracy: 0.9614 - val_loss: 1.0283 - val_accuracy: 0.7938
+Epoch 46/100
+5425/5425 [==============================] - 1115s 206ms/step - loss: 0.1948 - accuracy: 0.9613 - val_loss: 1.0089 - val_accuracy: 0.7993
+Epoch 47/100
+5425/5425 [==============================] - 1115s 205ms/step - loss: 0.1961 - accuracy: 0.9600 - val_loss: 1.0481 - val_accuracy: 0.7937
+Epoch 48/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.1940 - accuracy: 0.9617 - val_loss: 1.0011 - val_accuracy: 0.8023
+Epoch 49/100
+5425/5425 [==============================] - 1118s 206ms/step - loss: 0.1892 - accuracy: 0.9625 - val_loss: 1.0339 - val_accuracy: 0.7948
+Epoch 50/100
+5425/5425 [==============================] - 1129s 208ms/step - loss: 0.1916 - accuracy: 0.9622 - val_loss: 1.0336 - val_accuracy: 0.7961
+Epoch 51/100
+5425/5425 [==============================] - 1125s 207ms/step - loss: 0.1888 - accuracy: 0.9632 - val_loss: 1.0404 - val_accuracy: 0.7937
+Epoch 52/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.1888 - accuracy: 0.9625 - val_loss: 1.0543 - val_accuracy: 0.7917
+Epoch 53/100
+5425/5425 [==============================] - 1120s 206ms/step - loss: 0.1877 - accuracy: 0.9630 - val_loss: 1.0059 - val_accuracy: 0.7984
+Epoch 54/100
+5425/5425 [==============================] - 1114s 205ms/step - loss: 0.1849 - accuracy: 0.9634 - val_loss: 1.0008 - val_accuracy: 0.7988
+Epoch 55/100
+5425/5425 [==============================] - 1122s 207ms/step - loss: 0.1867 - accuracy: 0.9631 - val_loss: 1.0518 - val_accuracy: 0.7920
+Epoch 56/100
+5425/5425 [==============================] - 1136s 209ms/step - loss: 0.1848 - accuracy: 0.9635 - val_loss: 1.0162 - val_accuracy: 0.7975
+Epoch 57/100
+5425/5425 [==============================] - 1121s 207ms/step - loss: 0.1817 - accuracy: 0.9647 - val_loss: 1.0336 - val_accuracy: 0.7931
+Epoch 58/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.1811 - accuracy: 0.9648 - val_loss: 1.0318 - val_accuracy: 0.7964
+Epoch 59/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.1812 - accuracy: 0.9648 - val_loss: 1.0098 - val_accuracy: 0.7983
+Epoch 60/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.1789 - accuracy: 0.9652 - val_loss: 1.0202 - val_accuracy: 0.7986
+Epoch 61/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.1787 - accuracy: 0.9656 - val_loss: 1.0403 - val_accuracy: 0.7965
+Epoch 62/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.1779 - accuracy: 0.9656 - val_loss: 1.0175 - val_accuracy: 0.8012
+Epoch 63/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.1769 - accuracy: 0.9655 - val_loss: 1.0081 - val_accuracy: 0.7986
+Epoch 64/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.1779 - accuracy: 0.9649 - val_loss: 1.0544 - val_accuracy: 0.7934
+Epoch 65/100
+5425/5425 [==============================] - 1114s 205ms/step - loss: 0.1754 - accuracy: 0.9654 - val_loss: 1.0476 - val_accuracy: 0.7922
+Epoch 66/100
+5425/5425 [==============================] - 1118s 206ms/step - loss: 0.1739 - accuracy: 0.9661 - val_loss: 1.0223 - val_accuracy: 0.7968
+Epoch 67/100
+5425/5425 [==============================] - 1135s 209ms/step - loss: 0.1751 - accuracy: 0.9658 - val_loss: 1.0197 - val_accuracy: 0.7970
+Epoch 68/100
+5425/5425 [==============================] - 1120s 207ms/step - loss: 0.1722 - accuracy: 0.9672 - val_loss: 1.0425 - val_accuracy: 0.7992
+Epoch 69/100
+5425/5425 [==============================] - 1113s 205ms/step - loss: 0.1682 - accuracy: 0.9681 - val_loss: 1.0340 - val_accuracy: 0.7972
+Epoch 70/100
+5425/5425 [==============================] - 1113s 205ms/step - loss: 0.1679 - accuracy: 0.9683 - val_loss: 1.0285 - val_accuracy: 0.7979
+Epoch 71/100
+5425/5425 [==============================] - 1114s 205ms/step - loss: 0.1680 - accuracy: 0.9681 - val_loss: 1.0208 - val_accuracy: 0.7979
+Epoch 72/100
+5425/5425 [==============================] - 1113s 205ms/step - loss: 0.1666 - accuracy: 0.9687 - val_loss: 1.0240 - val_accuracy: 0.7990
+Epoch 73/100
+5425/5425 [==============================] - 1115s 205ms/step - loss: 0.1669 - accuracy: 0.9683 - val_loss: 1.0183 - val_accuracy: 0.8011
+Epoch 74/100
+5425/5425 [==============================] - 1114s 205ms/step - loss: 0.1657 - accuracy: 0.9684 - val_loss: 1.0189 - val_accuracy: 0.7994
+Epoch 75/100
+5425/5425 [==============================] - 1117s 206ms/step - loss: 0.1641 - accuracy: 0.9688 - val_loss: 1.0105 - val_accuracy: 0.8031
+Epoch 76/100
+5425/5425 [==============================] - 1118s 206ms/step - loss: 0.1632 - accuracy: 0.9697 - val_loss: 0.9898 - val_accuracy: 0.8074
+Epoch 77/100
+5425/5425 [==============================] - 1113s 205ms/step - loss: 0.1651 - accuracy: 0.9686 - val_loss: 1.0074 - val_accuracy: 0.8033
+Epoch 78/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.1617 - accuracy: 0.9695 - val_loss: 1.0450 - val_accuracy: 0.7937
+Epoch 79/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.1614 - accuracy: 0.9695 - val_loss: 1.0361 - val_accuracy: 0.7949
+Epoch 80/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.1618 - accuracy: 0.9690 - val_loss: 1.0420 - val_accuracy: 0.7957
+Epoch 81/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.1618 - accuracy: 0.9694 - val_loss: 1.0332 - val_accuracy: 0.7978
+Epoch 82/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.1586 - accuracy: 0.9705 - val_loss: 1.0275 - val_accuracy: 0.8024
+Epoch 83/100
+5425/5425 [==============================] - 1113s 205ms/step - loss: 0.1587 - accuracy: 0.9705 - val_loss: 1.0337 - val_accuracy: 0.7984
+Epoch 84/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.1599 - accuracy: 0.9699 - val_loss: 1.0301 - val_accuracy: 0.7985
+Epoch 85/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.1595 - accuracy: 0.9704 - val_loss: 1.0547 - val_accuracy: 0.7946
+Epoch 86/100
+5425/5425 [==============================] - 1113s 205ms/step - loss: 0.1581 - accuracy: 0.9702 - val_loss: 1.0288 - val_accuracy: 0.7989
+Epoch 87/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.1571 - accuracy: 0.9708 - val_loss: 1.0241 - val_accuracy: 0.7992
+Epoch 88/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.1565 - accuracy: 0.9705 - val_loss: 1.0555 - val_accuracy: 0.7949
+Epoch 89/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.1546 - accuracy: 0.9708 - val_loss: 1.0139 - val_accuracy: 0.8019
+Epoch 90/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.1549 - accuracy: 0.9714 - val_loss: 1.0253 - val_accuracy: 0.7990
+Epoch 91/100
+5425/5425 [==============================] - 1110s 205ms/step - loss: 0.1532 - accuracy: 0.9713 - val_loss: 1.0392 - val_accuracy: 0.7965
+Epoch 92/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.1535 - accuracy: 0.9715 - val_loss: 1.0098 - val_accuracy: 0.8025
+Epoch 93/100
+5425/5425 [==============================] - 1111s 205ms/step - loss: 0.1506 - accuracy: 0.9722 - val_loss: 1.0252 - val_accuracy: 0.7989
+Epoch 94/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.1519 - accuracy: 0.9717 - val_loss: 1.0300 - val_accuracy: 0.8019
+Epoch 95/100
+5425/5425 [==============================] - 1113s 205ms/step - loss: 0.1521 - accuracy: 0.9722 - val_loss: 1.0172 - val_accuracy: 0.8013
+Epoch 96/100
+5425/5425 [==============================] - 1113s 205ms/step - loss: 0.1504 - accuracy: 0.9720 - val_loss: 1.0274 - val_accuracy: 0.7992
+Epoch 97/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.1513 - accuracy: 0.9723 - val_loss: 1.0306 - val_accuracy: 0.8016
+Epoch 98/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.1490 - accuracy: 0.9722 - val_loss: 1.0051 - val_accuracy: 0.8046
+Epoch 99/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.1470 - accuracy: 0.9729 - val_loss: 1.0086 - val_accuracy: 0.8047
+Epoch 100/100
+5425/5425 [==============================] - 1112s 205ms/step - loss: 0.1467 - accuracy: 0.9737 - val_loss: 1.0042 - val_accuracy: 0.8008
+---evaluate---
+ 375/1484 [======>.......................] - ETA: 43s - loss: 1.0689 - accuracy: 0.7947E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:793: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 4. 
+  warnings.warn(str(msg))
+ 463/1484 [========>.....................] - ETA: 40s - loss: 1.0699 - accuracy: 0.7927E:\anaconda3\envs\term\lib\site-packages\PIL\Image.py:962: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+1066/1484 [====================>.........] - ETA: 16s - loss: 1.0273 - accuracy: 0.7973E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1078 bytes but only got 0. Skipping tag 37500
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 125 bytes but only got 120. Skipping tag 37510
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 41988
+  warnings.warn(
+1484/1484 [==============================] - 59s 40ms/step - loss: 1.0042 - accuracy: 0.8008
+
+
+원본
+E:\anaconda3\envs\term\python.exe "E:\PyCharm Community Edition 2020.3.3\plugins\python-ce\helpers\pydev\pydevconsole.py" --mode=client --port=22778
+import sys; print('Python %s on %s' % (sys.version, sys.platform))
+sys.path.extend(['E:\\pythonProject\\term', 'E:/pythonProject/term'])
+PyDev console: starting.
+Python 3.8.8 (default, Feb 24 2021, 15:54:32) [MSC v.1928 64 bit (AMD64)] on win32
+runfile('E:/pythonProject/term/food_inceptionV3.py', wdir='E:/pythonProject/term')
+Backend TkAgg is interactive backend. Turning interactive mode on.
+1 Physical GPUs, 1 Logical GPUs
+Found 135625 images belonging to 150 classes.
+Found 14833 images belonging to 150 classes.
+Epoch 1/5
+E:\anaconda3\envs\term\lib\site-packages\PIL\Image.py:962: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+ 430/5425 [=>............................] - ETA: 16:18 - loss: 0.0849 - accuracy: 0.9922E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:793: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 4. 
+  warnings.warn(str(msg))
+ 642/5425 [==>...........................] - ETA: 15:37 - loss: 0.0858 - accuracy: 0.9917E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 2. Skipping tag 41486
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 41487
+  warnings.warn(
+ 767/5425 [===>..........................] - ETA: 15:13 - loss: 0.0859 - accuracy: 0.9916E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1078 bytes but only got 0. Skipping tag 37500
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 125 bytes but only got 120. Skipping tag 37510
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 41988
+  warnings.warn(
+1150/5425 [=====>........................] - ETA: 13:58 - loss: 0.0871 - accuracy: 0.9915E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 20 bytes but only got 6. Skipping tag 272
+  warnings.warn(
+1597/5425 [=======>......................] - ETA: 12:30 - loss: 0.0881 - accuracy: 0.9911E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1498 bytes but only got 0. Skipping tag 37500
+  warnings.warn(
+2670/5425 [=============>................] - ETA: 9:00 - loss: 0.0887 - accuracy: 0.9909E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 2. Skipping tag 37386
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 37396
+  warnings.warn(
+5425/5425 [==============================] - 1132s 207ms/step - loss: 0.0897 - accuracy: 0.9905 - val_loss: 0.9088 - val_accuracy: 0.8207
+Epoch 2/5
+5425/5425 [==============================] - 1120s 207ms/step - loss: 0.0868 - accuracy: 0.9915 - val_loss: 0.9013 - val_accuracy: 0.8193
+Epoch 3/5
+5425/5425 [==============================] - 1120s 207ms/step - loss: 0.0837 - accuracy: 0.9917 - val_loss: 0.8975 - val_accuracy: 0.8210
+Epoch 4/5
+5425/5425 [==============================] - 1120s 206ms/step - loss: 0.0826 - accuracy: 0.9921 - val_loss: 0.9093 - val_accuracy: 0.8189
+Epoch 5/5
+5425/5425 [==============================] - 1122s 207ms/step - loss: 0.0811 - accuracy: 0.9924 - val_loss: 0.8992 - val_accuracy: 0.8195
+---evaluate---
+   9/1484 [..............................] - ETA: 1:04 - loss: 1.2015 - accuracy: 0.7444E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 1078 bytes but only got 0. Skipping tag 37500
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 125 bytes but only got 120. Skipping tag 37510
+  warnings.warn(
+E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:771: UserWarning: Possibly corrupt EXIF data.  Expecting to read 8 bytes but only got 0. Skipping tag 41988
+  warnings.warn(
+  49/1484 [..............................] - ETA: 1:01 - loss: 0.9910 - accuracy: 0.8204E:\anaconda3\envs\term\lib\site-packages\PIL\Image.py:962: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images
+  warnings.warn(
+  56/1484 [>.............................] - ETA: 1:01 - loss: 0.9602 - accuracy: 0.8214E:\anaconda3\envs\term\lib\site-packages\PIL\TiffImagePlugin.py:793: UserWarning: Corrupt EXIF data.  Expecting to read 12 bytes but only got 4. 
+  warnings.warn(str(msg))
+1484/1484 [==============================] - 60s 40ms/step - loss: 0.8992 - accuracy: 0.8195

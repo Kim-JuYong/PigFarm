@@ -1,0 +1,172 @@
+food_model_1000_lessDense
+
+cnn = Sequential()
+cnn.add(Conv2D(input_shape=(128,128,3), kernel_size=(3,3),
+               filters=32, activation='relu'))
+cnn.add(MaxPool2D(pool_size=(2,2)))
+cnn.add(Conv2D(kernel_size=(3,3),
+               filters=64, activation='relu'))
+cnn.add(MaxPool2D(pool_size=(2,2)))
+cnn.add(Conv2D(kernel_size=(3,3),
+               filters=128, activation='relu'))
+cnn.add(MaxPool2D(pool_size=(2,2)))
+cnn.add(Dropout(0.25))
+
+cnn.add(Flatten())
+cnn.add(Dense(128, activation='relu'))
+
+cnn.add(Dense(256, activation='relu'))
+cnn.add(Dropout(0.5))
+cnn.add(Dense(150, activation='softmax'))
+
+cnn.compile(loss='categorical_crossentropy',
+            optimizer=tf.keras.optimizers.Adam(), metrics=['accuracy'])
+
+58%대에서 횡보해서 멈춤 - EPOCH 50~70정도
+--------------------------
+food_model_1000_ver_0606_1
+
+cnn = Sequential()
+cnn.add(Conv2D(input_shape=(128,128,3), kernel_size=(3,3),
+               filters=32, activation='relu'))
+cnn.add(MaxPool2D(pool_size=(2,2)))
+cnn.add(Conv2D(kernel_size=(3,3),
+               filters=64, activation='relu'))
+cnn.add(MaxPool2D(pool_size=(2,2)))
+cnn.add(Conv2D(kernel_size=(3,3),
+               filters=128, activation='relu'))
+cnn.add(MaxPool2D(pool_size=(2,2)))
+cnn.add(Dropout(0.25))
+
+cnn.add(Flatten())
+cnn.add(Dense(128, activation='relu'))
+cnn.add(Dense(256, activation='relu'))
+cnn.add(Dense(256, activation='relu'))
+cnn.add(Dropout(0.5))
+cnn.add(Dense(150, activation='softmax'))
+
+cnn.compile(loss='categorical_crossentropy',
+            optimizer=tf.keras.optimizers.Adam(), metrics=['accuracy'])
+
+최초 학습 10회
+Epoch 10/10
+4704/4704 [==============================] - 1128s 240ms/step - loss: 2.4524 - accuracy: 0.3619
+
+2차 10회
+Epoch 10/10
+4704/4704 [==============================] - 497s 106ms/step - loss: 2.0364 - accuracy: 0.4603 - val_loss: 1.0147 - val_accuracy: 0.7346
+
+3차 10회
+Epoch 10/10
+4704/4704 [==============================] - 498s 106ms/step - loss: 1.8974 - accuracy: 0.4995 - val_loss: 0.8582 - val_accuracy: 0.7702
+
+
+
+=-------------
+food_model_1000_ver_0606_2
+이미지 변형추가 & 모델 변경 & sparse로 변경 & 너무 오래걸려 100개짜리로 변경
+이미지 변형추가를 하니 accuracy가 급격히 떨어지고 시간이 많이 늘어나 처음부터 다시 학습시킴
+
+train_images = train_data_generator.flow_from_directory(
+    image_dir_train_path,
+    target_size=(128,128),
+    batch_size=32,
+    class_mode='sparse'
+)
+
+test_images = test_data_generator.flow_from_directory(
+    image_dir_test_path,
+    target_size=(128,128),
+    batch_size=10,
+    class_mode='sparse'
+)
+
+train_data_generator = ImageDataGenerator(rotation_range=30,
+                                          width_shift_range=0.3,
+                                          shear_range=0.3,
+                                          rescale=1./255)
+
+cnn = Sequential()
+cnn.add(Conv2D(input_shape=(128,128,3), kernel_size=(3,3),
+               filters=32, activation='relu'))
+cnn.add(Conv2D(kernel_size=(3,3), filters=32, activation='relu'))
+cnn.add(MaxPool2D(pool_size=(2,2)))
+cnn.add(Dropout(0.25))
+
+cnn.add(Conv2D(kernel_size=(3,3), filters=64, activation='relu'))
+cnn.add(Conv2D(kernel_size=(3,3), filters=64, activation='relu'))
+cnn.add(MaxPool2D(pool_size=(2,2)))
+cnn.add(Dropout(0.25))
+
+cnn.add(Conv2D(kernel_size=(3,3), filters=128, activation='relu'))
+cnn.add(MaxPool2D(pool_size=(2,2)))
+cnn.add(Dropout(0.25))
+cnn.add(Conv2D(kernel_size=(3,3), filters=128, activation='relu'))
+cnn.add(MaxPool2D(pool_size=(2,2)))
+cnn.add(Dropout(0.25))
+cnn.add(Conv2D(kernel_size=(3,3), filters=256, activation='relu'))
+cnn.add(MaxPool2D(pool_size=(2,2)))
+cnn.add(Dropout(0.25))
+
+cnn.add(Flatten())
+cnn.add(Dense(256, activation='relu'))
+cnn.add(Dropout(0.5))
+cnn.add(Dense(150, activation='softmax'))
+
+cnn.compile(loss='sparse_categorical_crossentropy',
+            optimizer=tf.keras.optimizers.Adam(), metrics=['accuracy'])
+
+accuracy가 너무 오르지 않음 조정필요
+1차 10회
+Epoch 10/10
+464/464 [==============================] - 89s 192ms/step - loss: 5.0117 - accuracy: 0.0048 - val_loss: 5.0106 - val_accuracy: 0.0067
+-----------------------------------------
+food_model_1000_ver_0606_3
+data 100개
+
+filter 128부분 삭제
+
+cnn = Sequential()
+cnn.add(Conv2D(input_shape=(128,128,3), kernel_size=(3,3),
+               filters=32, activation='relu'))
+cnn.add(Conv2D(kernel_size=(3,3), filters=32, activation='relu'))
+cnn.add(MaxPool2D(pool_size=(2,2)))
+cnn.add(Dropout(0.25))
+
+cnn.add(Conv2D(kernel_size=(3,3), filters=64, activation='relu'))
+cnn.add(Conv2D(kernel_size=(3,3), filters=64, activation='relu'))
+cnn.add(MaxPool2D(pool_size=(2,2)))
+cnn.add(Dropout(0.25))
+
+cnn.add(Flatten())
+cnn.add(Dense(128, activation='relu'))
+cnn.add(Dense(256, activation='relu'))
+cnn.add(Dropout(0.5))
+cnn.add(Dense(150, activation='softmax'))
+
+cnn.compile(loss='sparse_categorical_crossentropy',
+            optimizer=tf.keras.optimizers.Adam(), metrics=['accuracy'])
+
+--------------------------------------
+food_model_ver_0606_4
+계속해서 성능이 좋지 않음
+예전에 잘나왔던 모델 다시 사용함 & 이미지 100개에 변형은 그대로
+
+cnn = Sequential()
+cnn.add(Conv2D(input_shape=(128,128,3), kernel_size=(3,3),
+               filters=32, activation='relu', padding='same'))
+cnn.add(Conv2D(kernel_size=(3,3), filters=64, activation='relu', padding='same'))
+cnn.add(MaxPool2D(pool_size=(2,2)))
+cnn.add(Dropout(0.25))
+
+cnn.add(Flatten())
+
+cnn.add(Dense(256, activation='relu'))
+cnn.add(Dropout(0.5))
+cnn.add(Dense(150, activation='softmax'))
+
+cnn.compile(loss='sparse_categorical_crossentropy',
+            optimizer=tf.keras.optimizers.Adam(), metrics=['accuracy'])
+
+-> OOM떠서 train의 batch_size를 10으로 줄임 test이미지도 변형epoch 100
+
